@@ -1,0 +1,12 @@
+Source: ros-r2b2-rosidl-default-generators
+Section: misc
+Priority: extra
+Maintainer: Dirk Thomas <dthomas@osrfoundation.org>
+Build-Depends: debhelper (>= 9.0.0), ros-r2b2-ament-cmake, ros-r2b2-ament-lint-auto, ros-r2b2-ament-lint-common, ros-r2b2-ros-workspace
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-r2b2-rosidl-default-generators
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-r2b2-rosidl-cmake, ros-r2b2-rosidl-generator-c, ros-r2b2-rosidl-generator-cpp, ros-r2b2-rosidl-generator-py, ros-r2b2-rosidl-typesupport-c, ros-r2b2-rosidl-typesupport-connext-c, ros-r2b2-rosidl-typesupport-connext-cpp, ros-r2b2-rosidl-typesupport-cpp, ros-r2b2-rosidl-typesupport-introspection-c, ros-r2b2-rosidl-typesupport-introspection-cpp, ros-r2b2-rosidl-typesupport-opensplice-c, ros-r2b2-rosidl-typesupport-opensplice-cpp, ros-r2b2-ros-workspace
+Description: A configuration package defining the default ROS interface generators.

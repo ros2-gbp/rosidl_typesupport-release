@@ -1,0 +1,12 @@
+Source: ros-r2b2-rosidl-typesupport-cpp
+Section: misc
+Priority: extra
+Maintainer: Dirk Thomas <dthomas@osrfoundation.org>
+Build-Depends: debhelper (>= 9.0.0), libpoco-dev, ros-r2b2-ament-cmake, ros-r2b2-ament-lint-auto, ros-r2b2-ament-lint-common, ros-r2b2-poco-vendor, ros-r2b2-rosidl-generator-c, ros-r2b2-ros-workspace
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-r2b2-rosidl-typesupport-cpp
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libpoco-dev, ros-r2b2-ament-cmake-core, ros-r2b2-poco-vendor, ros-r2b2-rmw-implementation, ros-r2b2-rosidl-generator-c, ros-r2b2-rosidl-typesupport-c, ros-r2b2-rosidl-typesupport-connext-cpp, ros-r2b2-rosidl-typesupport-interface, ros-r2b2-rosidl-typesupport-introspection-cpp, ros-r2b2-rosidl-typesupport-opensplice-cpp, ros-r2b2-ros-workspace
+Description: Generate the type support for C++ messages.

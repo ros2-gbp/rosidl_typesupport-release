@@ -1,0 +1,12 @@
+Source: ros-r2b3-rosidl-typesupport-c
+Section: misc
+Priority: extra
+Maintainer: Dirk Thomas <dthomas@osrfoundation.org>
+Build-Depends: debhelper (>= 9.0.0), libpoco-dev, ros-r2b3-ament-cmake, ros-r2b3-ament-lint-auto, ros-r2b3-ament-lint-common, ros-r2b3-poco-vendor, ros-r2b3-rosidl-generator-c, ros-r2b3-ros-workspace
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-r2b3-rosidl-typesupport-c
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libpoco-dev, ros-r2b3-ament-cmake-core, ros-r2b3-poco-vendor, ros-r2b3-rmw-implementation, ros-r2b3-rosidl-generator-c, ros-r2b3-rosidl-typesupport-interface, ros-r2b3-rosidl-typesupport-introspection-c, ros-r2b3-rosidl-typesupport-opensplice-c, ros-r2b3-ros-workspace
+Description: Generate the type support for C messages.

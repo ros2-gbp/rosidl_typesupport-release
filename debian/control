@@ -1,0 +1,12 @@
+Source: ros-ardent-rosidl-default-runtime
+Section: misc
+Priority: extra
+Maintainer: Dirk Thomas <dthomas@osrfoundation.org>
+Build-Depends: debhelper (>= 9.0.0), ros-ardent-ament-cmake, ros-ardent-ament-lint-auto, ros-ardent-ament-lint-common, ros-ardent-ros-workspace
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-ardent-rosidl-default-runtime
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-ardent-rosidl-generator-cpp, ros-ardent-rosidl-generator-py, ros-ardent-rosidl-typesupport-c, ros-ardent-rosidl-typesupport-cpp, ros-ardent-rosidl-typesupport-introspection-c, ros-ardent-rosidl-typesupport-introspection-cpp, ros-ardent-rosidl-typesupport-opensplice-c, ros-ardent-rosidl-typesupport-opensplice-cpp, ros-ardent-ros-workspace
+Description: A configuration package defining the runtime for the ROS interfaces.

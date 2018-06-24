@@ -11,4 +11,5 @@ Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, @(', '.join(Depends))
 @[if Conflicts]Conflicts: @(', '.join(Conflicts))@\n@[end if]@
 @[if Replaces]Replaces: @(', '.join(Replaces))@\n@[end if]@
+Suggests: ros-bouncy-rosidl-typesupport-connext-cpp, ros-bouncy-rosidl-typesupport-opensplice-cpp
 Description: @(Description)

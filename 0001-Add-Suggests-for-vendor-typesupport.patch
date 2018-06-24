@@ -1,0 +1,22 @@
+From ac7dd6dac1cc2cbbedc3ff275909ed611284a048 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Steven!=20Ragnar=C3=B6k?= <steven@nuclearsandwich.com>
+Date: Sun, 24 Jun 2018 08:45:47 -0700
+Subject: [PATCH] Add Suggests for vendor typesupport.
+
+---
+ debian/control.em | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/debian/control.em b/debian/control.em
+index 7cbf65a..8f2eeda 100644
+--- a/debian/control.em
++++ b/debian/control.em
+@@ -11,4 +11,5 @@ Architecture: any
+ Depends: ${shlibs:Depends}, ${misc:Depends}, @(', '.join(Depends))
+ @[if Conflicts]Conflicts: @(', '.join(Conflicts))@\n@[end if]@
+ @[if Replaces]Replaces: @(', '.join(Replaces))@\n@[end if]@
++Suggests: ros-bouncy-rosidl-typesupport-connext-cpp, ros-bouncy-rosidl-typesupport-opensplice-cpp
+ Description: @(Description)
+-- 
+2.7.4
+

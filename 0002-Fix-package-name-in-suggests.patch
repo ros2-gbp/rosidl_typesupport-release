@@ -1,0 +1,24 @@
+From 76641380871095adfc0fb08d711c49f200ce7ba1 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Steven!=20Ragnar=C3=B6k?=
+ <nuclearsandwich@users.noreply.github.com>
+Date: Tue, 26 Jun 2018 21:38:35 -0400
+Subject: [PATCH 2/2] Fix package name in suggests.
+
+---
+ debian/control.em | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/debian/control.em b/debian/control.em
+index 4d87a37..4706c11 100644
+--- a/debian/control.em
++++ b/debian/control.em
+@@ -11,5 +11,5 @@ Architecture: any
+ Depends: ${shlibs:Depends}, ${misc:Depends}, @(', '.join(Depends))
+ @[if Conflicts]Conflicts: @(', '.join(Conflicts))@\n@[end if]@
+ @[if Replaces]Replaces: @(', '.join(Replaces))@\n@[end if]@
+-Suggests: rosidl-typesupport-connext-c, ros-bouncy-rosidl-typesupport-opensplice-c
++Suggests: ros-bouncy-rosidl-typesupport-connext-c, ros-bouncy-rosidl-typesupport-opensplice-c
+ Description: @(Description)
+-- 
+2.7.4
+

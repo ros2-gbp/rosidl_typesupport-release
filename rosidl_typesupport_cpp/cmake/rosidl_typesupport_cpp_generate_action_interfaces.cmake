@@ -1,4 +1,4 @@
-# Copyright 2016 Open Source Robotics Foundation, Inc.
+# Copyright 2018 Open Source Robotics Foundation, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,19 +13,15 @@
 # limitations under the License.
 
 set(_output_path
-  "${CMAKE_CURRENT_BINARY_DIR}/rosidl_typesupport_c/${PROJECT_NAME}")
+  "${CMAKE_CURRENT_BINARY_DIR}/rosidl_typesupport_cpp/${PROJECT_NAME}")
 set(_generated_files "")
-foreach(_idl_file ${rosidl_generate_interfaces_IDL_FILES})
+
+foreach(_idl_file ${rosidl_generate_action_interfaces_IDL_FILES})
   get_filename_component(_extension "${_idl_file}" EXT)
   get_filename_component(_parent_folder "${_idl_file}" DIRECTORY)
   get_filename_component(_parent_folder "${_parent_folder}" NAME)
-  if(_extension STREQUAL ".msg")
-    set(_allowed_parent_folders "msg" "srv" "action")
-    if(NOT _parent_folder IN_LIST _allowed_parent_folders)
-      message(FATAL_ERROR "Interface file with unknown parent folder: ${_idl_file}")
-    endif()
-  elseif(_extension STREQUAL ".srv")
-    set(_allowed_parent_folders "srv" "action")
+  if(_extension STREQUAL ".action")
+    set(_allowed_parent_folders "action")
     if(NOT _parent_folder IN_LIST _allowed_parent_folders)
       message(FATAL_ERROR "Interface file with unknown parent folder: ${_idl_file}")
     endif()
@@ -41,7 +37,7 @@ endforeach()
 
 set(_dependency_files "")
 set(_dependencies "")
-foreach(_pkg_name ${rosidl_generate_interfaces_DEPENDENCY_PACKAGE_NAMES})
+foreach(_pkg_name ${rosidl_generate_action_interfaces_DEPENDENCY_PACKAGE_NAMES})
   foreach(_idl_file ${${_pkg_name}_INTERFACE_FILES})
   get_filename_component(_extension "${_idl_file}" EXT)
   if(_extension STREQUAL ".msg")
@@ -54,11 +50,10 @@ foreach(_pkg_name ${rosidl_generate_interfaces_DEPENDENCY_PACKAGE_NAMES})
 endforeach()
 
 set(target_dependencies
-  "${rosidl_typesupport_c_BIN}"
-  ${rosidl_typesupport_c_GENERATOR_FILES}
-  "${rosidl_typesupport_c_TEMPLATE_DIR}/msg__type_support.cpp.em"
-  "${rosidl_typesupport_c_TEMPLATE_DIR}/srv__type_support.cpp.em"
-  ${rosidl_generate_interfaces_IDL_FILES}
+  "${rosidl_typesupport_cpp_BIN}"
+  ${rosidl_typesupport_cpp_GENERATOR_FILES}
+  "${rosidl_typesupport_cpp_TEMPLATE_DIR}/action__type_support.cpp.em"
+  ${rosidl_generate_action_interfaces_IDL_FILES}
   ${_dependency_files})
 foreach(dep ${target_dependencies})
   if(NOT EXISTS "${dep}")
@@ -69,119 +64,122 @@ foreach(dep ${target_dependencies})
   endif()
 endforeach()
 
-set(generator_arguments_file "${CMAKE_CURRENT_BINARY_DIR}/rosidl_typesupport_c__arguments.json")
+set(generator_arguments_file "${CMAKE_CURRENT_BINARY_DIR}/rosidl_typesupport_cpp__generate_action_interfaces__arguments.json")
 rosidl_write_generator_arguments(
   "${generator_arguments_file}"
   PACKAGE_NAME "${PROJECT_NAME}"
-  ROS_INTERFACE_FILES "${rosidl_generate_interfaces_IDL_FILES}"
+  ROS_INTERFACE_FILES "${rosidl_generate_action_interfaces_IDL_FILES}"
   ROS_INTERFACE_DEPENDENCIES "${_dependencies}"
   OUTPUT_DIR "${_output_path}"
-  TEMPLATE_DIR "${rosidl_typesupport_c_TEMPLATE_DIR}"
+  TEMPLATE_DIR "${rosidl_typesupport_cpp_TEMPLATE_DIR}"
   TARGET_DEPENDENCIES ${target_dependencies}
 )
 
-get_used_typesupports(typesupports "rosidl_typesupport_c")
+get_used_typesupports(typesupports "rosidl_typesupport_cpp")
 add_custom_command(
   OUTPUT ${_generated_files}
-  COMMAND ${PYTHON_EXECUTABLE} ${rosidl_typesupport_c_BIN}
+  COMMAND ${PYTHON_EXECUTABLE} ${rosidl_typesupport_cpp_BIN}
   --generator-arguments-file "${generator_arguments_file}"
   --typesupports ${typesupports}
   DEPENDS ${target_dependencies}
-  COMMENT "Generating C type support dispatch for ROS interfaces"
+  COMMENT "Generating C++ type support dispatch for ROS action interfaces"
   VERBATIM
 )
 
-# generate header to switch between export and import for a specific package
-set(_visibility_control_file
-  "${_output_path}/msg/rosidl_typesupport_c__visibility_control.h")
-string(TOUPPER "${PROJECT_NAME}" PROJECT_NAME_UPPER)
-configure_file(
-  "${rosidl_typesupport_c_TEMPLATE_DIR}/rosidl_typesupport_c__visibility_control.h.in"
-  "${_visibility_control_file}"
-  @ONLY
-)
+set(_target_suffix "__rosidl_typesupport_cpp__generate_action_interfaces")
 
-set(_target_suffix "__rosidl_typesupport_c")
-
-add_library(${rosidl_generate_interfaces_TARGET}${_target_suffix} ${rosidl_typesupport_c_LIBRARY_TYPE} ${_generated_files})
-if(rosidl_generate_interfaces_LIBRARY_NAME)
-  set_target_properties(${rosidl_generate_interfaces_TARGET}${_target_suffix}
-    PROPERTIES OUTPUT_NAME "${rosidl_generate_interfaces_LIBRARY_NAME}${_target_suffix}")
+add_library(${rosidl_generate_action_interfaces_TARGET}${_target_suffix} ${rosidl_typesupport_cpp_LIBRARY_TYPE} ${_generated_files})
+if(rosidl_generate_action_interfaces_LIBRARY_NAME)
+  set_target_properties(${rosidl_generate_action_interfaces_TARGET}${_target_suffix}
+    PROPERTIES OUTPUT_NAME "${rosidl_generate_action_interfaces_LIBRARY_NAME}${_target_suffix}")
 endif()
 if(WIN32)
-  target_compile_definitions(${rosidl_generate_interfaces_TARGET}${_target_suffix}
-    PRIVATE "ROSIDL_GENERATOR_C_BUILDING_DLL_${PROJECT_NAME}")
-  target_compile_definitions(${rosidl_generate_interfaces_TARGET}${_target_suffix}
-    PRIVATE "ROSIDL_TYPESUPPORT_C_BUILDING_DLL_${PROJECT_NAME}")
+  target_compile_definitions(${rosidl_generate_action_interfaces_TARGET}${_target_suffix}
+    PRIVATE "ROSIDL_TYPESUPPORT_CPP_BUILDING_DLL")
 endif()
-
-set_target_properties(${rosidl_generate_interfaces_TARGET}${_target_suffix}
+set_target_properties(${rosidl_generate_action_interfaces_TARGET}${_target_suffix}
   PROPERTIES CXX_STANDARD 14)
+
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-  set_target_properties(${rosidl_generate_interfaces_TARGET}${_target_suffix}
+  set_target_properties(${rosidl_generate_action_interfaces_TARGET}${_target_suffix}
     PROPERTIES COMPILE_OPTIONS -Wall -Wextra -Wpedantic)
 endif()
-target_include_directories(${rosidl_generate_interfaces_TARGET}${_target_suffix}
+target_include_directories(${rosidl_generate_action_interfaces_TARGET}${_target_suffix}
   PUBLIC
-  ${CMAKE_CURRENT_BINARY_DIR}/rosidl_typesupport_c
+  ${CMAKE_CURRENT_BINARY_DIR}/rosidl_typesupport_cpp
+  ${CMAKE_CURRENT_BINARY_DIR}/rosidl_generator_cpp
 )
-target_link_libraries(${rosidl_generate_interfaces_TARGET}${_target_suffix}
-  ${rosidl_generate_interfaces_TARGET}__rosidl_generator_c)
+
+# Add dependency to type support library for generated msg and srv for actions
+target_link_libraries(${rosidl_generate_action_interfaces_TARGET}${_target_suffix}
+  ${rosidl_generate_action_interfaces_TARGET}__rosidl_typesupport_cpp)
 
 # if only a single typesupport is used this package will directly reference it
 # therefore it needs to link against the selected typesupport
 if(NOT typesupports MATCHES ";")
-  target_include_directories(${rosidl_generate_interfaces_TARGET}${_target_suffix}
+  target_include_directories(${rosidl_generate_action_interfaces_TARGET}${_target_suffix}
     PUBLIC
     "${CMAKE_CURRENT_BINARY_DIR}/${typesupports}")
-  target_link_libraries(${rosidl_generate_interfaces_TARGET}${_target_suffix}
-    ${rosidl_generate_interfaces_TARGET}__${typesupports})
+  target_link_libraries(${rosidl_generate_action_interfaces_TARGET}${_target_suffix}
+    ${rosidl_generate_action_interfaces_TARGET}__${typesupports})
 else()
-  if("${rosidl_typesupport_c_LIBRARY_TYPE}" STREQUAL "STATIC")
+  if("${rosidl_typesupport_cpp_LIBRARY_TYPE}" STREQUAL "STATIC")
     message(FATAL_ERROR "Multiple typesupports but static linking was requested")
   endif()
-  if(NOT rosidl_typesupport_c_SUPPORTS_POCO)
+  if(NOT rosidl_typesupport_cpp_SUPPORTS_POCO)
     message(FATAL_ERROR "Multiple typesupports but Poco was not available when "
-      "rosidl_typesupport_c was built")
+      "rosidl_typesupport_cpp was built")
   endif()
 endif()
 
-ament_target_dependencies(${rosidl_generate_interfaces_TARGET}${_target_suffix}
+ament_target_dependencies(${rosidl_generate_action_interfaces_TARGET}${_target_suffix}
   "rosidl_generator_c"
-  "rosidl_typesupport_c"
+  "rosidl_generator_cpp"
+  "rosidl_typesupport_cpp"
   "rosidl_typesupport_interface")
-foreach(_pkg_name ${rosidl_generate_interfaces_DEPENDENCY_PACKAGE_NAMES})
+foreach(_pkg_name ${rosidl_generate_action_interfaces_DEPENDENCY_PACKAGE_NAMES})
   ament_target_dependencies(
-    ${rosidl_generate_interfaces_TARGET}${_target_suffix}
+    ${rosidl_generate_action_interfaces_TARGET}${_target_suffix}
     ${_pkg_name})
 endforeach()
 
 add_dependencies(
-  ${rosidl_generate_interfaces_TARGET}
-  ${rosidl_generate_interfaces_TARGET}${_target_suffix}
+  ${rosidl_generate_action_interfaces_TARGET}
+  ${rosidl_generate_action_interfaces_TARGET}${_target_suffix}
 )
 
-if(NOT rosidl_generate_interfaces_SKIP_INSTALL)
+# Depend on target created by rosidl_generator_cpp for including msg and srv headers it generates
+add_dependencies(
+  ${rosidl_generate_action_interfaces_TARGET}${_target_suffix}
+  ${rosidl_generate_action_interfaces_TARGET}__cpp
+)
+# Depend on target created by rosidl_generator_cpp for including action headers it generates
+add_dependencies(
+  ${rosidl_generate_action_interfaces_TARGET}${_target_suffix}
+  ${rosidl_generate_action_interfaces_TARGET}__cpp__actions
+)
+
+if(NOT rosidl_generate_action_interfaces_SKIP_INSTALL)
   install(
-    TARGETS ${rosidl_generate_interfaces_TARGET}${_target_suffix}
+    TARGETS ${rosidl_generate_action_interfaces_TARGET}${_target_suffix}
     ARCHIVE DESTINATION lib
     LIBRARY DESTINATION lib
     RUNTIME DESTINATION bin
   )
-  ament_export_libraries(${rosidl_generate_interfaces_TARGET}${_target_suffix})
+  ament_export_libraries(${rosidl_generate_action_interfaces_TARGET}${_target_suffix})
 endif()
 
-if(BUILD_TESTING AND rosidl_generate_interfaces_ADD_LINTER_TESTS)
+if(BUILD_TESTING AND rosidl_generate_action_interfaces_ADD_LINTER_TESTS)
   if(NOT _generated_files STREQUAL "")
     find_package(ament_cmake_cppcheck REQUIRED)
     ament_cppcheck(
-      TESTNAME "cppcheck_rosidl_typesupport_c"
+      TESTNAME "cppcheck_rosidl_typesupport_cpp_generate_action_interfaces"
       "${_output_path}")
 
     find_package(ament_cmake_cpplint REQUIRED)
     get_filename_component(_cpplint_root "${_output_path}" DIRECTORY)
     ament_cpplint(
-      TESTNAME "cpplint_rosidl_typesupport_c"
+      TESTNAME "cpplint_rosidl_typesupport_cpp_generate_action_interfaces"
       # the generated code might contain longer lines for templated types
       MAX_LINE_LENGTH 999
       ROOT "${_cpplint_root}"
@@ -189,7 +187,7 @@ if(BUILD_TESTING AND rosidl_generate_interfaces_ADD_LINTER_TESTS)
 
     find_package(ament_cmake_uncrustify REQUIRED)
     ament_uncrustify(
-      TESTNAME "uncrustify_rosidl_typesupport_c"
+      TESTNAME "uncrustify_rosidl_typesupport_cpp_generate_action_interfaces"
       # the generated code might contain longer lines for templated types
       MAX_LINE_LENGTH 999
       "${_output_path}")

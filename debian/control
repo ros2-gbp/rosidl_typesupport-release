@@ -1,0 +1,13 @@
+Source: ros-crystal-rosidl-typesupport-cpp
+Section: misc
+Priority: extra
+Maintainer: Dirk Thomas <dthomas@osrfoundation.org>
+Build-Depends: debhelper (>= 9.0.0), libpoco-dev, ros-crystal-ament-cmake-ros, ros-crystal-ament-lint-auto, ros-crystal-ament-lint-common, ros-crystal-poco-vendor, ros-crystal-rosidl-generator-c, ros-crystal-rosidl-typesupport-connext-cpp, ros-crystal-rosidl-typesupport-introspection-cpp, ros-crystal-rosidl-typesupport-opensplice-cpp, ros-crystal-ros-workspace
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-crystal-rosidl-typesupport-cpp
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libpoco-dev, ros-crystal-ament-cmake-core, ros-crystal-poco-vendor, ros-crystal-rmw-implementation, ros-crystal-rosidl-generator-c, ros-crystal-rosidl-typesupport-c, ros-crystal-rosidl-typesupport-interface, ros-crystal-ros-workspace
+Suggests: ros-crystal-rosidl-typesupport-connext-cpp, ros-crystal-rosidl-typesupport-fastrtps-cpp, ros-crystal-rosidl-typesupport-opensplice-cpp
+Description: Generate the type support for C++ messages.

@@ -1,4 +1,4 @@
-From 5d619eb21d89a5a3cf67c7138132213f71e3027c Mon Sep 17 00:00:00 2001
+From 0ca43ac572d87fee46d7962da50a283afaa45d81 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Steven!=20Ragnar=C3=B6k?= <steven@nuclearsandwich.com>
 Date: Fri, 16 Nov 2018 15:52:51 -0800
 Subject: [PATCH] Add Suggests for vendor typesupport packages.

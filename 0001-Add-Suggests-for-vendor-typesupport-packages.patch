@@ -1,0 +1,22 @@
+From 90148345ecba1b800d6fa876ce979ab545a9db1b Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Steven!=20Ragnar=C3=B6k?= <steven@nuclearsandwich.com>
+Date: Fri, 16 Nov 2018 15:55:12 -0800
+Subject: [PATCH] Add Suggests for vendor typesupport packages.
+
+---
+ debian/control.em | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/debian/control.em b/debian/control.em
+index 7cbf65a..ab607f8 100644
+--- a/debian/control.em
++++ b/debian/control.em
+@@ -11,4 +11,5 @@ Architecture: any
+ Depends: ${shlibs:Depends}, ${misc:Depends}, @(', '.join(Depends))
+ @[if Conflicts]Conflicts: @(', '.join(Conflicts))@\n@[end if]@
+ @[if Replaces]Replaces: @(', '.join(Replaces))@\n@[end if]@
++Suggests: ros-dashing-rosidl-typesupport-connext-cpp, ros-dashing-rosidl-typesupport-fastrtps-cpp, ros-dashing-rosidl-typesupport-opensplice-cpp
+ Description: @(Description)
+-- 
+2.7.4
+

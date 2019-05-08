@@ -1,0 +1,13 @@
+Source: ros-dashing-rosidl-typesupport-cpp
+Section: misc
+Priority: extra
+Maintainer: Dirk Thomas <dthomas@osrfoundation.org>
+Build-Depends: debhelper (>= 9.0.0), libpoco-dev, ros-dashing-ament-cmake-ros, ros-dashing-ament-lint-auto, ros-dashing-ament-lint-common, ros-dashing-poco-vendor, ros-dashing-rosidl-generator-c, ros-dashing-rosidl-typesupport-connext-cpp, ros-dashing-rosidl-typesupport-introspection-cpp, ros-dashing-rosidl-typesupport-opensplice-cpp, ros-dashing-ros-workspace
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-dashing-rosidl-typesupport-cpp
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libpoco-dev, ros-dashing-ament-cmake-core, ros-dashing-poco-vendor, ros-dashing-rmw-implementation, ros-dashing-rosidl-generator-c, ros-dashing-rosidl-typesupport-c, ros-dashing-rosidl-typesupport-interface, ros-dashing-ros-workspace
+Suggests: ros-dashing-rosidl-typesupport-connext-cpp, ros-dashing-rosidl-typesupport-fastrtps-cpp, ros-dashing-rosidl-typesupport-opensplice-cpp
+Description: Generate the type support for C++ messages.

@@ -1,4 +1,4 @@
-From b7ec8a024d60e7570b172f33a67ad8238f48c26d Mon Sep 17 00:00:00 2001
+From bd7f353c9917af7b377c8936dbea9b03be6c250e Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Steven!=20Ragnar=C3=B6k?= <steven@nuclearsandwich.com>
 Date: Fri, 16 Nov 2018 15:52:51 -0800
 Subject: [PATCH] Add Suggests for vendor typesupport packages.
@@ -18,5 +18,5 @@ index 7cbf65a..3a59fb9 100644
 +Suggests: ros-dashing-rosidl-typesupport-connext-c, ros-dashing-rosidl-typesupport-fastrtps-c, ros-dashing-rosidl-typesupport-opensplice-c
  Description: @(Description)
 -- 
-2.7.4
+2.17.1
 

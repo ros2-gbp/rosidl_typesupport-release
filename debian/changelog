@@ -1,0 +1,69 @@
+ros-eloquent-rosidl-typesupport-c (0.8.0-1bionic) bionic; urgency=high
+
+
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Thu, 26 Sep 2019 05:00:00 -0000
+
+ros-eloquent-rosidl-typesupport-c (0.7.1-1bionic) bionic; urgency=high
+
+  * update code to match refactoring of rosidl definitions (#49 <https://github.com/ros2/rosidl_typesupport/issues/49>)
+  * remove usage of UnknownMessageType (#48 <https://github.com/ros2/rosidl_typesupport/issues/48>)
+  * Contributors: Dirk Thomas
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Wed, 08 May 2019 05:00:00 -0000
+
+ros-eloquent-rosidl-typesupport-c (0.7.0-1bionic) bionic; urgency=high
+
+  * Using ament_target_dependencies where possible (#46 <https://github.com/ros2/rosidl_typesupport/issues/46>)
+  * change generators to IDL-based pipeline (#39 <https://github.com/ros2/rosidl_typesupport/issues/39>)
+  * Contributors: Dirk Thomas, ivanpauno
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Sun, 14 Apr 2019 05:00:00 -0000
+
+ros-eloquent-rosidl-typesupport-c (0.6.2-1bionic) bionic; urgency=high
+
+  * include available typesuppports in error message (#43 <https://github.com/ros2/rosidl_typesupport/issues/43>)
+  * Change uncrustify max line length to 0 (#42 <https://github.com/ros2/rosidl_typesupport/issues/42>)
+  * Contributors: Dirk Thomas, Jacob Perron
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Fri, 11 Jan 2019 06:00:00 -0000
+
+ros-eloquent-rosidl-typesupport-c (0.6.1-1bionic) bionic; urgency=high
+
+  * Merge pull request #41 <https://github.com/ros2/rosidl_typesupport/issues/41> from ros2/hidmic/trim-action-targets-names
+  * Contributors: Michel Hidalgo
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Fri, 07 Dec 2018 06:00:00 -0000
+
+ros-eloquent-rosidl-typesupport-c (0.6.0-1bionic) bionic; urgency=high
+
+  * Add typesupport for actions in c and c++ (#36 <https://github.com/ros2/rosidl_typesupport/issues/36>)
+  * Allow generated IDL files (#35 <https://github.com/ros2/rosidl_typesupport/issues/35>)
+  * Merge pull request #33 <https://github.com/ros2/rosidl_typesupport/issues/33> from ros2/hidmic/prepare_for_action_generation
+  * Removes remaininig srv folder assumptions.
+  * Makes rosidl interfaces generation action folder aware.
+  * update manifest to adhere to tag order in schema (#30 <https://github.com/ros2/rosidl_typesupport/issues/30>)
+  * Contributors: Alexis Pojomovsky, Dirk Thomas, Michel Hidalgo, Shane Loretz
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Fri, 16 Nov 2018 06:00:00 -0000
+
+ros-eloquent-rosidl-typesupport-c (0.5.0-1bionic) bionic; urgency=high
+
+  * Prepare dependencies for bouncy release. (#27 <https://github.com/ros2/rosidl_typesupport/issues/27>)
+  * add and use groups for generator and runtime packages (#25 <https://github.com/ros2/rosidl_typesupport/issues/25>)
+  * Merge pull request #23 <https://github.com/ros2/rosidl_typesupport/issues/23> from ros2/misra_fixup
+  * Merge pull request #22 <https://github.com/ros2/rosidl_typesupport/issues/22> from ros2/use_typesupport_group
+  * use CMAKE_CURRENT_BINARY_DIR for arguments json (#21 <https://github.com/ros2/rosidl_typesupport/issues/21>)
+  * use ament_cmake_ros (#19 <https://github.com/ros2/rosidl_typesupport/issues/19>)
+  * Contributors: Dirk Thomas, Michael Carroll, Steven! Ragnarök
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Sun, 24 Jun 2018 05:00:00 -0000
+
+ros-eloquent-rosidl-typesupport-c (0.4.0-1bionic) bionic; urgency=high
+
+  * update service type support header name (#15 <https://github.com/ros2/rosidl_typesupport/issues/15>)
+  * Contributors: Dirk Thomas, Mikael Arguedas
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Fri, 08 Dec 2017 06:00:00 -0000
+
+

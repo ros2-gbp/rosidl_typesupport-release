@@ -1,3 +1,28 @@
+## rosidl_typesupport (eloquent) - 0.8.0-1
+
+The packages in the `rosidl_typesupport` repository were released into the `eloquent` distro by running `/usr/bin/bloom-release -r eloquent rosidl_typesupport` on `Thu, 26 Sep 2019 17:57:19 -0000`
+
+These packages were released:
+- `rosidl_typesupport_c`
+- `rosidl_typesupport_cpp`
+
+Version of package(s) in repository `rosidl_typesupport`:
+
+- upstream repository: https://github.com/ros2/rosidl_typesupport.git
+- release repository: unknown
+- rosdistro version: `null`
+- old version: `null`
+- new version: `0.8.0-1`
+
+Versions of tools used:
+
+- bloom version: `0.8.0`
+- catkin_pkg version: `0.4.13`
+- rosdep version: `0.16.1`
+- rosdistro version: `0.7.4`
+- vcstools version: `0.1.42`
+
+
 ## rosidl_typesupport (dashing) - 0.7.1-1
 
 The packages in the `rosidl_typesupport` repository were released into the `dashing` distro by running `/home/jacob/.local/bin/bloom-release -r dashing rosidl_typesupport` on `Wed, 08 May 2019 23:11:08 -0000`

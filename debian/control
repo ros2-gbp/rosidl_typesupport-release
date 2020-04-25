@@ -1,0 +1,12 @@
+Source: ros-foxy-rosidl-typesupport-cpp
+Section: misc
+Priority: optional
+Maintainer: Dirk Thomas <dthomas@osrfoundation.org>
+Build-Depends: debhelper (>= 9.0.0), ros-foxy-ament-cmake-ros, ros-foxy-ament-lint-auto, ros-foxy-ament-lint-common, ros-foxy-rcpputils, ros-foxy-rosidl-runtime-c, ros-foxy-rosidl-typesupport-connext-cpp, ros-foxy-rosidl-typesupport-introspection-cpp, ros-foxy-ros-workspace
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-foxy-rosidl-typesupport-cpp
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-foxy-ament-cmake-core, ros-foxy-rcpputils, ros-foxy-rosidl-runtime-c, ros-foxy-rosidl-runtime-cpp, ros-foxy-rosidl-typesupport-c, ros-foxy-rosidl-typesupport-interface, ros-foxy-ros-workspace
+Description: Generate the type support for C++ messages.

@@ -1,3 +1,28 @@
+## rosidl_typesupport (foxy) - 1.0.0-1
+
+The packages in the `rosidl_typesupport` repository were released into the `foxy` distro by running `/usr/bin/bloom-release -r foxy rosidl_typesupport` on `Wed, 27 May 2020 02:49:04 -0000`
+
+These packages were released:
+- `rosidl_typesupport_c`
+- `rosidl_typesupport_cpp`
+
+Version of package(s) in repository `rosidl_typesupport`:
+
+- upstream repository: https://github.com/ros2/rosidl_typesupport.git
+- release repository: https://github.com/ros2-gbp/rosidl_typesupport-release.git
+- rosdistro version: `0.9.2-1`
+- old version: `0.9.2-1`
+- new version: `1.0.0-1`
+
+Versions of tools used:
+
+- bloom version: `0.9.7`
+- catkin_pkg version: `0.4.20`
+- rosdep version: `0.19.0`
+- rosdistro version: `0.8.2`
+- vcstools version: `0.1.42`
+
+
 ## rosidl_typesupport (foxy) - 0.9.2-1
 
 The packages in the `rosidl_typesupport` repository were released into the `foxy` distro by running `/usr/bin/bloom-release --rosdistro foxy --track foxy rosidl_typesupport` on `Tue, 19 May 2020 18:35:58 -0000`

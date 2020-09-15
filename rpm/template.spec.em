@@ -24,6 +24,10 @@ Source0:        %{name}-%{version}.tar.gz
 @[for p in Supplements]Supplements:    @p@\n@[end for]@
 %endif@\n@[end if]@
 
+%if 0%{?with_weak_deps}
+Suggests:       ros-rolling-rosidl-typesupport-fastrtps-cpp
+%endif
+
 %description
 @(Description)
 

@@ -15,23 +15,14 @@
 #ifndef ROSIDL_TYPESUPPORT_CPP__SERVICE_TYPE_SUPPORT_DISPATCH_HPP_
 #define ROSIDL_TYPESUPPORT_CPP__SERVICE_TYPE_SUPPORT_DISPATCH_HPP_
 
-#include "rosidl_runtime_c/service_type_support_struct.h"
-#include "rosidl_runtime_c/visibility_control.h"
+#include "rosidl_generator_c/service_type_support_struct.h"
+#include "rosidl_generator_c/visibility_control.h"
 
 #include "rosidl_typesupport_cpp/visibility_control.h"
 
 namespace rosidl_typesupport_cpp
 {
 
-/// Get the service type support handle specific to this identifier.
-/**
- * If the identifier is the same as this handle's typesupport_identifier, then the handle is
- * simply returned, otherwise it's loaded from a shared library.
- *
- * \param handle Handle to message type support
- * \param identifier The typesupport identifier to get the handle function for
- * \return The associated service typesupport handle if found, otherwise NULL
- */
 ROSIDL_TYPESUPPORT_CPP_PUBLIC
 const rosidl_service_type_support_t *
 get_service_typesupport_handle_function(

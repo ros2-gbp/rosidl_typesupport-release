@@ -22,7 +22,6 @@ extern "C"
 {
 #endif
 
-/// String identifier specific to rosidl_typesupport_c.
 ROSIDL_TYPESUPPORT_C_PUBLIC
 extern const char * rosidl_typesupport_c__typesupport_identifier;
 

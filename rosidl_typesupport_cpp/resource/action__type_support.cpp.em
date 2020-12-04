@@ -1,8 +1,8 @@
 @# Included from rosidl_typesupport_cpp/resource/idl__type_support.cpp.em
 @{
 from rosidl_cmake import convert_camel_case_to_lower_case_underscore
-include_parts = [package_name] + list(interface_path.parents[0].parts) + [
-    'detail', convert_camel_case_to_lower_case_underscore(interface_path.stem)]
+include_parts = [package_name] + list(interface_path.parents[0].parts) + \
+    [convert_camel_case_to_lower_case_underscore(interface_path.stem)]
 include_base = '/'.join(include_parts)
 
 header_files = (
@@ -10,7 +10,7 @@ header_files = (
     'action_msgs/srv/cancel_goal.hpp',
     include_base + '__struct.hpp',
     'rosidl_typesupport_cpp/visibility_control.h',
-    'rosidl_runtime_c/action_type_support_struct.h',
+    'rosidl_generator_c/action_type_support_struct.h',
     'rosidl_typesupport_cpp/action_type_support.hpp',
     'rosidl_typesupport_cpp/message_type_support.hpp',
     'rosidl_typesupport_cpp/service_type_support.hpp',

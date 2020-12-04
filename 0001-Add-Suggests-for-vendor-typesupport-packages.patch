@@ -1,4 +1,4 @@
-From 31ae634503e0be95594f717fa28486d5c28f03a0 Mon Sep 17 00:00:00 2001
+From 0859fd66003e105198060e1a50cf1ef0d3be9027 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Steven!=20Ragnar=C3=B6k?= <steven@nuclearsandwich.com>
 Date: Fri, 16 Nov 2018 15:55:12 -0800
 Subject: [PATCH] Add Suggests for vendor typesupport packages.
@@ -19,5 +19,5 @@ index 7cbf65a..36f2685 100644
 +Suggests: ros-eloquent-rosidl-typesupport-connext-cpp, ros-eloquent-rosidl-typesupport-fastrtps-cpp, ros-eloquent-rosidl-typesupport-opensplice-cpp
  Description: @(Description)
 -- 
-2.17.1
+2.25.1
 

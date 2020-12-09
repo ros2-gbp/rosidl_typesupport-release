@@ -13,10 +13,15 @@
 // limitations under the License.
 
 #include <gtest/gtest.h>
+
 #include "rcpputils/shared_library.hpp"
+#include "rcutils/error_handling.h"
+#include "rcutils/testing/fault_injection.h"
 #include "rosidl_typesupport_c/identifier.h"
 #include "rosidl_typesupport_c/message_type_support_dispatch.h"
 #include "rosidl_typesupport_c/type_support_map.h"
+
+#include "./mocking_utils/patch.hpp"
 
 constexpr size_t map_size = 4u;
 constexpr const char package_name[] = "rosidl_typesupport_c";
@@ -83,12 +88,23 @@ TEST(TestMessageTypeSupportDispatch, get_handle_function) {
     rosidl_typesupport_c__get_message_typesupport_handle_function(
       &type_support,
       "different_identifier"), nullptr);
+  EXPECT_TRUE(rcutils_error_is_set());
+  rcutils_reset_error();
 
   rosidl_message_type_support_t type_support_c_identifier =
     get_rosidl_message_type_support(rosidl_typesupport_c__typesupport_identifier);
   rcpputils::SharedLibrary * library_array[map_size] = {nullptr, nullptr, nullptr};
   type_support_map_t support_map = get_typesupport_map(reinterpret_cast<void **>(&library_array));
   type_support_c_identifier.data = &support_map;
+
+  {
+    // rcutils_get_symbol fails (after rcutils_has_symbol succeeds)
+    auto mock = mocking_utils::patch_and_return("lib:rcpputils", rcutils_get_symbol, nullptr);
+    EXPECT_EQ(
+      rosidl_typesupport_c__get_message_typesupport_handle_function(
+        &type_support_c_identifier,
+        "test_type_support1"), nullptr);
+  }
 
   // Successfully load library and find symbols
   auto * result = rosidl_typesupport_c__get_message_typesupport_handle_function(
@@ -98,7 +114,8 @@ TEST(TestMessageTypeSupportDispatch, get_handle_function) {
   ASSERT_NE(support_map.data[0], nullptr);
   auto * clib = static_cast<const rcpputils::SharedLibrary *>(support_map.data[0]);
   auto * lib = const_cast<rcpputils::SharedLibrary *>(clib);
-  ASSERT_NE(lib, nullptr);
+  ASSERT_TRUE(nullptr != lib);
+
   EXPECT_TRUE(lib->has_symbol("test_message_type_support"));
   auto * sym = lib->get_symbol("test_message_type_support");
   ASSERT_NE(sym, nullptr);
@@ -108,16 +125,42 @@ TEST(TestMessageTypeSupportDispatch, get_handle_function) {
     rosidl_typesupport_c__get_message_typesupport_handle_function(
       &type_support_c_identifier,
       "test_type_support2"), nullptr);
+  EXPECT_TRUE(rcutils_error_is_set());
+  rcutils_reset_error();
 
   // Library file exists, but loading shared library fails
-  EXPECT_THROW(
+  EXPECT_EQ(
     rosidl_typesupport_c__get_message_typesupport_handle_function(
       &type_support_c_identifier,
-      "test_type_support3"), std::runtime_error);
+      "test_type_support3"), nullptr);
+  EXPECT_TRUE(rcutils_error_is_set());
+  rcutils_reset_error();
 
   // Library doesn't exist
   EXPECT_EQ(
     rosidl_typesupport_c__get_message_typesupport_handle_function(
       &type_support_c_identifier,
       "test_type_support4"), nullptr);
+  EXPECT_TRUE(rcutils_error_is_set());
+  rcutils_reset_error();
+}
+
+TEST(TestMessageTypeSupportDispatch, get_message_typesupport_maybe_fail_test)
+{
+  rosidl_message_type_support_t type_support_c_identifier =
+    get_rosidl_message_type_support(rosidl_typesupport_c__typesupport_identifier);
+  rcpputils::SharedLibrary * library_array[map_size] = {nullptr, nullptr, nullptr};
+  type_support_map_t support_map = get_typesupport_map(reinterpret_cast<void **>(&library_array));
+  type_support_c_identifier.data = &support_map;
+
+  RCUTILS_FAULT_INJECTION_TEST(
+  {
+    auto * result = rosidl_typesupport_c__get_message_typesupport_handle_function(
+      &type_support_c_identifier,
+      "test_type_support1");
+    if (nullptr == result) {
+      EXPECT_TRUE(rcutils_error_is_set());
+      rcutils_reset_error();
+    }
+  });
 }

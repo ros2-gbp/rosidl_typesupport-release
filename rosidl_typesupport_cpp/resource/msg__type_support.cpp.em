@@ -1,13 +1,13 @@
 @# Included from rosidl_typesupport_cpp/resource/idl__type_support.cpp.em
 @{
 from rosidl_cmake import convert_camel_case_to_lower_case_underscore
-include_parts = [package_name] + list(interface_path.parents[0].parts) + \
-    [convert_camel_case_to_lower_case_underscore(interface_path.stem)]
+include_parts = [package_name] + list(interface_path.parents[0].parts) + [
+    'detail', convert_camel_case_to_lower_case_underscore(interface_path.stem)]
 include_base = '/'.join(include_parts)
 
 header_files = [
     'cstddef',
-    'rosidl_generator_c/message_type_support_struct.h',
+    'rosidl_runtime_c/message_type_support_struct.h',
     include_base + '__struct.hpp',
 ]
 if len(type_supports) != 1:
@@ -15,8 +15,8 @@ if len(type_supports) != 1:
 header_files.append('rosidl_typesupport_cpp/message_type_support.hpp')
 if len(type_supports) != 1:
     header_files += [
+        'rosidl_typesupport_c/type_support_map.h',
         'rosidl_typesupport_cpp/message_type_support_dispatch.hpp',
-        'rosidl_typesupport_cpp/type_support_map.h',
     ]
 header_files.append('rosidl_typesupport_cpp/visibility_control.h')
 if len(type_supports) != 1:
@@ -107,8 +107,8 @@ static const rosidl_message_type_support_t @(message.structure.namespaced_type.n
 
 @[else]@
 @{
-include_parts = [package_name] + list(interface_path.parents[0].parts) + \
-    [convert_camel_case_to_lower_case_underscore(interface_path.stem)]
+include_parts = [package_name] + list(interface_path.parents[0].parts) + [
+    'detail', convert_camel_case_to_lower_case_underscore(interface_path.stem)]
 include_base = '/'.join(include_parts)
 header_file = include_base + '__' + list(type_supports)[0] + '.hpp'
 }@

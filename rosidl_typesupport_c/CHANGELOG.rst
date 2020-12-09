@@ -2,10 +2,51 @@
 Changelog for package rosidl_typesupport_c
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-0.8.1 (2020-12-04)
+1.1.0 (2020-12-08)
 ------------------
-* Make Poco optional again (`#54 <https://github.com/ros2/rosidl_typesupport/issues/54>`_) (`#57 <https://github.com/ros2/rosidl_typesupport/issues/57>`_)
-* Contributors: Sean Kelly
+* Explicitly check lib pointer for null (`#95 <https://github.com/ros2/rosidl_typesupport/issues/95>`_)
+* Update Quality Declaration to QL 1 (`#96 <https://github.com/ros2/rosidl_typesupport/issues/96>`_)
+* Add mock for rcutils_get_symbol failure (`#93 <https://github.com/ros2/rosidl_typesupport/issues/93>`_)
+* Update the maintainers (`#89 <https://github.com/ros2/rosidl_typesupport/issues/89>`_)
+* Catch exception from has_symbol (`#86 <https://github.com/ros2/rosidl_typesupport/issues/86>`_)
+* Added benchmark test to rosidl_typesupport_c/cpp (`#84 <https://github.com/ros2/rosidl_typesupport/issues/84>`_)
+* Handle rcpputils::find_library_path() failure (`#85 <https://github.com/ros2/rosidl_typesupport/issues/85>`_)
+* Add fault injection macros and unit tests (`#80 <https://github.com/ros2/rosidl_typesupport/issues/80>`_)
+* Remove rethrow in extern c code (`#82 <https://github.com/ros2/rosidl_typesupport/issues/82>`_)
+* Add Security Vulnerability Policy pointing to REP-2006 (`#76 <https://github.com/ros2/rosidl_typesupport/issues/76>`_)
+* Contributors: Alejandro Hernández Cordero, Chris Lalancette, Jose Luis Rivero, Jose Tomas Lorente, Louise Poubel, Michel Hidalgo, Stephen Brawner
+
+1.0.0 (2020-05-26)
+------------------
+* Addresses test failures in release mode (`#75 <https://github.com/ros2/rosidl_typesupport/issues/75>`_)
+* Add tests for type_support functions (`#63 <https://github.com/ros2/rosidl_typesupport/issues/63>`_)
+* Contributors: Stephen Brawner
+
+0.9.2 (2020-05-19)
+------------------
+
+0.9.1 (2020-05-19)
+------------------
+* Force extension points to be registered in order (`#73 <https://github.com/ros2/rosidl_typesupport/issues/73>`_)
+* Update API documentation and quality declarations (`#74 <https://github.com/ros2/rosidl_typesupport/issues/74>`_)
+* Complete feature documentation (`#72 <https://github.com/ros2/rosidl_typesupport/issues/72>`_)
+* Add API documentation for public functions (`#64 <https://github.com/ros2/rosidl_typesupport/issues/64>`_)
+* Add current quality level declarations (`#67 <https://github.com/ros2/rosidl_typesupport/issues/67>`_)
+* Contributors: Ivan Santiago Paunovic, brawner
+
+0.9.0 (2020-04-24)
+------------------
+* Fix single typesupport build exposing build directory in include dirs (`#71 <https://github.com/ros2/rosidl_typesupport/issues/71>`_)
+* Export targets in addition to include directories / libraries (`#69 <https://github.com/ros2/rosidl_typesupport/issues/69>`_ `#70 <https://github.com/ros2/rosidl_typesupport/issues/70>`_)
+* Fix build with single introspection typesupport (`#68 <https://github.com/ros2/rosidl_typesupport/issues/68>`_)
+* Update includes to use non-entry point headers from detail subdirectory (`#66 <https://github.com/ros2/rosidl_typesupport/issues/66>`_)
+* Rename rosidl_generator_c namespace to rosidl_runtime_c (`#65 <https://github.com/ros2/rosidl_typesupport/issues/65>`_)
+* Remove dependency on rmw_implementation (`#62 <https://github.com/ros2/rosidl_typesupport/issues/62>`_)
+* Added rosidl_runtime c depencency (`#58 <https://github.com/ros2/rosidl_typesupport/issues/58>`_)
+* Removed poco dependency (`#59 <https://github.com/ros2/rosidl_typesupport/issues/59>`_)
+* Remove OpenSplice dependencies (`#56 <https://github.com/ros2/rosidl_typesupport/issues/56>`_)
+* Depend on rcpputils` for find_library (`#47 <https://github.com/ros2/rosidl_typesupport/issues/47>`_)
+* Contributors: Alejandro Hernández Cordero, Dirk Thomas, Eric Cousineau, Jacob Perron, Sean Kelly
 
 0.8.0 (2019-09-26)
 ------------------

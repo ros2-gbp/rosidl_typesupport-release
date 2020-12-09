@@ -15,27 +15,12 @@
 #ifndef ROSIDL_TYPESUPPORT_CPP__TYPE_SUPPORT_MAP_H_
 #define ROSIDL_TYPESUPPORT_CPP__TYPE_SUPPORT_MAP_H_
 
-#include <cstddef>
+// Keep this file not to break API. It was no more than
+// a copy of rosidl_typesupport_c/type_support_map.h
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif
+#warning rosidl_typesupport_cpp/type_support_map.h header is deprecated \
+  in favor of rosidl_typesupport_c/type_support_map.h.
 
-typedef struct type_support_map_t
-{
-  // TODO(dirk-thomas) const should not be defined for the fields
-  // but should be set for the struct when it is being used
-  // same for rosidl_message_type_support_t et al
-  const size_t size;
-  const char * package_name;
-  const char * const * typesupport_identifier;
-  const char * const * symbol_name;
-  void ** data;
-} type_support_map_t;
-
-#ifdef __cplusplus
-}
-#endif
+#include "rosidl_typesupport_c/type_support_map.h"
 
 #endif  // ROSIDL_TYPESUPPORT_CPP__TYPE_SUPPORT_MAP_H_

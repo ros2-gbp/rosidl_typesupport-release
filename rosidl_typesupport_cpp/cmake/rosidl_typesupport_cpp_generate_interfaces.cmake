@@ -12,6 +12,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+if(NOT rosidl_generator_cpp_FOUND)
+  message(FATAL_ERROR
+    "'rosidl_generator_cpp' not found when executing "
+    "'rosidl_typesupport_cpp' extension.")
+endif()
+
 set(_output_path
   "${CMAKE_CURRENT_BINARY_DIR}/rosidl_typesupport_cpp/${PROJECT_NAME}")
 set(_generated_sources "")
@@ -93,7 +99,8 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 endif()
 target_include_directories(${rosidl_generate_interfaces_TARGET}${_target_suffix}
   PUBLIC
-  ${CMAKE_CURRENT_BINARY_DIR}/rosidl_generator_cpp
+  "$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/rosidl_generator_cpp>"
+  "$<INSTALL_INTERFACE:include>"
 )
 
 # if only a single typesupport is used this package will directly reference it
@@ -101,7 +108,7 @@ target_include_directories(${rosidl_generate_interfaces_TARGET}${_target_suffix}
 if(NOT typesupports MATCHES ";")
   target_include_directories(${rosidl_generate_interfaces_TARGET}${_target_suffix}
     PUBLIC
-    "${CMAKE_CURRENT_BINARY_DIR}/${typesupports}")
+    "$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/${typesupports}>")
   target_link_libraries(${rosidl_generate_interfaces_TARGET}${_target_suffix}
     ${rosidl_generate_interfaces_TARGET}__${typesupports})
 else()
@@ -109,21 +116,20 @@ else()
     message(FATAL_ERROR "Multiple typesupports [${typesupports}] but static "
       "linking was requested")
   endif()
-  if(NOT rosidl_typesupport_cpp_SUPPORTS_POCO)
-    message(FATAL_ERROR "Multiple typesupports [${typesupports}] but Poco was "
-      "not available when rosidl_typesupport_cpp was built")
-  endif()
 endif()
 
 ament_target_dependencies(${rosidl_generate_interfaces_TARGET}${_target_suffix}
-  "rosidl_generator_c"
-  "rosidl_generator_cpp"
+  "rosidl_runtime_c"
+  "rosidl_runtime_cpp"
   "rosidl_typesupport_cpp"
   "rosidl_typesupport_interface")
 foreach(_pkg_name ${rosidl_generate_interfaces_DEPENDENCY_PACKAGE_NAMES})
   ament_target_dependencies(
     ${rosidl_generate_interfaces_TARGET}${_target_suffix}
     ${_pkg_name})
+  if(NOT rosidl_generate_interfaces_SKIP_INSTALL)
+    ament_export_dependencies(${_pkg_name})
+  endif()
 endforeach()
 
 add_dependencies(
@@ -138,11 +144,13 @@ add_dependencies(
 if(NOT rosidl_generate_interfaces_SKIP_INSTALL)
   install(
     TARGETS ${rosidl_generate_interfaces_TARGET}${_target_suffix}
+    EXPORT ${rosidl_generate_interfaces_TARGET}${_target_suffix}
     ARCHIVE DESTINATION lib
     LIBRARY DESTINATION lib
     RUNTIME DESTINATION bin
   )
   ament_export_libraries(${rosidl_generate_interfaces_TARGET}${_target_suffix})
+  ament_export_targets(${rosidl_generate_interfaces_TARGET}${_target_suffix})
 endif()
 
 if(BUILD_TESTING AND rosidl_generate_interfaces_ADD_LINTER_TESTS)

@@ -2,15 +2,18 @@
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
   <name>rosidl_typesupport_cpp</name>
-  <version>1.0.0</version>
+  <version>1.1.0</version>
   <description>Generate the type support for C++ messages.</description>
-  <maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
+  <maintainer email="clalancette@openrobotics.org">Chris Lalancette</maintainer>
+  <maintainer email="sloretz@openrobotics.org">Shane Loretz</maintainer>
   <license>Apache License 2.0</license>
+  <author email="dthomas@osrfoundation.org">Dirk Thomas</author>
 
   <buildtool_depend>ament_cmake_ros</buildtool_depend>
 
   <depend>rcpputils</depend>
   <build_depend>rosidl_runtime_c</build_depend>
+  <build_depend>rosidl_typesupport_c</build_depend>
   <!--
   Bloom does not support group_depend so entries below duplicate the group rosidl_typesupport_cpp_packages.
   This ensures that binary packages have support for all of these rmw impl. enabled.
@@ -28,6 +31,7 @@
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
+  <test_depend>performance_test_fixture</test_depend>
 
   <group_depend>rosidl_typesupport_cpp_packages</group_depend>
 

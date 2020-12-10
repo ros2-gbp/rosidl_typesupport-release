@@ -51,11 +51,11 @@ Following the recommended guidelines for ROS Core packages, all pull requests mu
 
 All pull request must pass CI on all [tier 1 platforms](https://www.ros.org/reps/rep-2000.html#support-tiers)
 
-Though there are no nightly jobs for foxy outside of linux, each change is tested on ci.ros2.org.
-* [linux-aarch64](https://ci.ros2.org/job/ci_linux-aarch64)
-* [linux](https://ci.ros2.org/job/ci_linux)
-* [mac_osx](https://ci.ros2.org/job/ci_osx)
-* [windows](https://ci.ros2.org/job/ci_windows)
+Currently nightly results for the master branch can be seen here:
+* [linux-aarch64_release](https://ci.ros2.org/view/nightly/job/nightly_linux-aarch64_release/lastBuild/testReport/rosidl_typesupport_cpp/)
+* [linux_release](https://ci.ros2.org/view/nightly/job/nightly_linux_release/lastBuild/testReport/rosidl_typesupport_cpp/)
+* [mac_osx_release](https://ci.ros2.org/view/nightly/job/nightly_osx_release/lastBuild/testReport/rosidl_typesupport_cpp/)
+* [windows_release](https://ci.ros2.org/view/nightly/job/nightly_win_rel/lastBuild/testReport/rosidl_typesupport_cpp/)
 
 ### Documentation Policy [2.v]
 
@@ -91,13 +91,13 @@ Most recent test results can be found [here](http://ci.ros2.org/job/nightly_linu
 
 ### Feature Testing [4.i]
 
-The features of `rosidl_typesupport_cpp` are tested, and their tests are located in the [test directory](https://github.com/ros2/rosidl_typesupport/tree/foxy/rosidl_typesupport_cpp/test).
+The features of `rosidl_typesupport_cpp` are tested, and their tests are located in the [test directory](https://github.com/ros2/rosidl_typesupport/tree/master/rosidl_typesupport_cpp/test).
 
 Most recent test results can be found [here](https://ci.ros2.org/job/nightly_linux_release/lastBuild/testReport/rosidl_typesupport_cpp).
 
 ### Public API Testing [4.ii]
 
-The public API of `rosidl_typesupport_cpp` is tested, and the tests are located in the [test directory](https://github.com/ros2/rosidl_typesupport/tree/foxy/rosidl_typesupport_cpp/test).
+The public API of `rosidl_typesupport_cpp` is tested, and the tests are located in the [test directory](https://github.com/ros2/rosidl_typesupport/tree/master/rosidl_typesupport_cpp/test).
 
 Most recent test results can be found [here](https://ci.ros2.org/job/nightly_linux_release/lastBuild/testReport/rosidl_typesupport_cpp).
 
@@ -135,12 +135,12 @@ Results of the linting tests can be found [here](https://ci.ros2.org/job/nightly
 
 ### Direct and Optional Runtime ROS Dependencies [5.i/5.ii]
 
-`rosidl_typesupport_cpp` has the following runtime ROS dependencies, all of which are at **Quality Level 1**.
-* `rcpputils`: [QUALITY DECLARATION](https://github.com/ros2/rcpputils/tree/foxy/QUALITY_DECLARATION.md)
-* `rosidl_runtime_c`: [QUALITY DECLARATION](https://github.com/ros2/rosidl/tree/foxy/rosidl_runtime_c/QUALITY_DECLARATION.md)
-* `rosidl_runtime_cpp`: [QUALITY DECLARATION](https://github.com/ros2/rosidl/tree/foxy/rosidl_runtime_cpp/QUALITY_DECLARATION.md)
+`rosidl_typesupport_cpp` has the following runtime ROS dependencies, all of which are at **Quality Level 1**
+* `rcpputils`: [QUALITY DECLARATION](https://github.com/ros2/rcpputils/tree/master/QUALITY_DECLARATION.md)
+* `rosidl_runtime_c`: [QUALITY DECLARATION](https://github.com/ros2/rosidl/tree/master/rosidl_runtime_c/QUALITY_DECLARATION.md)
+* `rosidl_runtime_cpp`: [QUALITY DECLARATION](https://github.com/ros2/rosidl/tree/master/rosidl_runtime_cpp/QUALITY_DECLARATION.md)
 * `rosidl_typesupport_c`: [QUALITY DECLARATION](../rosidl_typesupport_c/QUALITY_DECLARATION.md)
-* `rosidl_typesupport_interface`: [QUALITY DECLARATION](https://github.com/ros2/rosidl/tree/foxy/rosidl_typesupport_interface/QUALITY_DECLARATION.md)
+* `rosidl_typesupport_interface`: [QUALITY DECLARATION](https://github.com/ros2/rosidl/tree/master/rosidl_typesupport_interface/QUALITY_DECLARATION.md)
 
 It has "buildtool" dependencies, which do not affect the resulting quality of the package, because they do not contribute to the public library API.
 It also has several test dependencies, which do not affect the resulting quality of the package, because they are only used to build and run the test code.
@@ -153,11 +153,11 @@ It also has several test dependencies, which do not affect the resulting quality
 
 `rosidl_typesupport_cpp` supports all of the tier 1 platforms as described in [REP-2000](https://www.ros.org/reps/rep-2000.html#support-tiers), and tests each change against all of them.
 
-Though there are no nightly jobs for foxy outside of linux, each change is tested on ci.ros2.org.
-* [linux-aarch64](https://ci.ros2.org/job/ci_linux-aarch64)
-* [linux](https://ci.ros2.org/job/ci_linux)
-* [mac_osx](https://ci.ros2.org/job/ci_osx)
-* [windows](https://ci.ros2.org/job/ci_windows)
+Currently nightly results can be seen here:
+* [linux-aarch64_release](https://ci.ros2.org/view/nightly/job/nightly_linux-aarch64_release/lastBuild/testReport/rosidl_typesupport_cpp/)
+* [linux_release](https://ci.ros2.org/view/nightly/job/nightly_linux_release/lastBuild/testReport/rosidl_typesupport_cpp/)
+* [mac_osx_release](https://ci.ros2.org/view/nightly/job/nightly_osx_release/lastBuild/testReport/rosidl_typesupport_cpp/)
+* [windows_release](https://ci.ros2.org/view/nightly/job/nightly_win_rel/lastBuild/testReport/rosidl_typesupport_cpp/)
 
 ## Security [7]
 

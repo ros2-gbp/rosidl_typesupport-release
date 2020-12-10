@@ -1,4 +1,4 @@
-From 688463dcfcce6c7f5646fb909d24ffce62436ed1 Mon Sep 17 00:00:00 2001
+From 2629f8c84544e8f908b97a17a9601972241e5ed0 Mon Sep 17 00:00:00 2001
 From: Jacob Perron <jacob@openrobotics.org>
 Date: Fri, 24 Apr 2020 21:07:51 -0700
 Subject: [PATCH] Add Suggests for vendor typesupport packages
@@ -9,15 +9,15 @@ Signed-off-by: Jacob Perron <jacob@openrobotics.org>
  1 file changed, 1 insertion(+)
 
 diff --git a/debian/control.em b/debian/control.em
-index 6d7b65c..ef17f43 100644
+index 6d7b65c..eb38f87 100644
 --- a/debian/control.em
 +++ b/debian/control.em
 @@ -11,4 +11,5 @@ Architecture: any
  Depends: ${shlibs:Depends}, ${misc:Depends}, @(', '.join(Depends))
  @[if Conflicts]Conflicts: @(', '.join(Conflicts))@\n@[end if]@
  @[if Replaces]Replaces: @(', '.join(Replaces))@\n@[end if]@
-+Suggests: ros-foxy-rosidl-typesupport-connext-c, ros-foxy-rosidl-typesupport-fastrtps-c
++Suggests: ros-rolling-rosidl-typesupport-connext-c, ros-rolling-rosidl-typesupport-fastrtps-c
  Description: @(Description)
 -- 
-2.25.1
+2.29.2
 

@@ -1,0 +1,43 @@
+From 32139aa9b5c3a6aa51c97e175dbeef86b0115008 Mon Sep 17 00:00:00 2001
+From: Scott K Logan <logans@cottsay.net>
+Date: Thu, 28 Jan 2021 15:46:13 -0800
+Subject: [PATCH] Resolve group dependencies
+
+Also drop the unavailable RMWs from the package.xml.
+
+Signed-off-by: Scott K Logan <logans@cottsay.net>
+---
+ package.xml          | 1 -
+ rpm/template.spec.em | 4 ++++
+ 2 files changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/package.xml b/package.xml
+index 80b1904..42f8f41 100644
+--- a/package.xml
++++ b/package.xml
+@@ -19,7 +19,6 @@
+   Bloom does not support group_depend so entries below duplicate the group rosidl_typesupport_c_packages.
+   This ensures that binary packages have support for all of these rmw impl. enabled.
+   -->
+-  <build_depend>rosidl_typesupport_connext_c</build_depend>
+   <build_depend>rosidl_typesupport_introspection_c</build_depend>
+   <!-- end of group rosidl_typesupport_c_packages for bloom -->
+ 
+diff --git a/rpm/template.spec.em b/rpm/template.spec.em
+index c0d00ea..65e4249 100644
+--- a/rpm/template.spec.em
++++ b/rpm/template.spec.em
+@@ -24,6 +24,10 @@ Source0:        %{name}-%{version}.tar.gz
+ @[for p in Supplements]Supplements:    @p@\n@[end for]@
+ %endif@\n@[end if]@
+ 
++%if 0%{?with_weak_deps}
++Suggests:       ros-rolling-rosidl-typesupport-fastrtps-c
++%endif
++
+ %description
+ @(Description)
+ 
+-- 
+2.29.2
+

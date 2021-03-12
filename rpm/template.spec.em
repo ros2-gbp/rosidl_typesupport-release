@@ -1,7 +1,3 @@
-@{
-# FastRTPS nor Connext are available for RHEL - ignore any deps related to them
-BuildDepends = [d for d in BuildDepends if not any(x for x in ['connext', 'fastrtps'] if x in d)]
-}@
 %bcond_without tests
 %bcond_without weak_deps
 

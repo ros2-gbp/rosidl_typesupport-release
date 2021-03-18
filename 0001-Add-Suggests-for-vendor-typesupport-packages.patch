@@ -1,4 +1,4 @@
-From 8804f625fa82ec6cd4e355820a4807ac7097f086 Mon Sep 17 00:00:00 2001
+From 04122c9308dcf2a722a2b01380188ac4fbdfb8e0 Mon Sep 17 00:00:00 2001
 From: Jacob Perron <jacob@openrobotics.org>
 Date: Fri, 24 Apr 2020 21:07:51 -0700
 Subject: [PATCH] Add Suggests for vendor typesupport packages
@@ -19,5 +19,5 @@ index 6d7b65c..eb38f87 100644
 +Suggests: ros-rolling-rosidl-typesupport-connext-c, ros-rolling-rosidl-typesupport-fastrtps-c
  Description: @(Description)
 -- 
-2.29.2
+2.25.1
 

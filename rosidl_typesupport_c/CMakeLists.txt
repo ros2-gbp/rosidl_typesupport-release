@@ -31,7 +31,8 @@ ament_python_install_package(${PROJECT_NAME})
 add_library(${PROJECT_NAME}
   src/identifier.c
   src/message_type_support_dispatch.cpp
-  src/service_type_support_dispatch.cpp)
+  src/service_type_support_dispatch.cpp
+  src/type_support_dispatch.cpp)
 if(WIN32)
   target_compile_definitions(${PROJECT_NAME}
     PRIVATE "ROSIDL_TYPESUPPORT_C_BUILDING_DLL")
@@ -124,6 +125,7 @@ if(BUILD_TESTING)
   if(TARGET benchmark_type_support_dispatch)
     target_link_libraries(benchmark_type_support_dispatch ${PROJECT_NAME})
     ament_target_dependencies(benchmark_type_support_dispatch rcpputils)
+    target_include_directories(benchmark_type_support_dispatch PRIVATE include)
   endif()
 endif()
 

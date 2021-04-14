@@ -2,38 +2,19 @@
 Changelog for package rosidl_typesupport_cpp
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1.2.1 (2021-04-06)
+1.0.2 (2021-04-14)
 ------------------
-* updating quality declaration links (re: `ros2/docs.ros2.org#52 <https://github.com/ros2/docs.ros2.org/issues/52>`_) (`#108 <https://github.com/ros2/rosidl_typesupport/issues/108>`_)
-* Contributors: shonigmann
+* Update quality declaration links (re: `ros2/docs.ros2.org#52 <https://github.com/ros2/docs.ros2.org/issues/52>`_) (`#109 <https://github.com/ros2/rosidl_typesupport/issues/109>`_)
+* Contributors: Simon Honigmann
 
-1.2.0 (2021-03-25)
+1.0.1 (2020-12-08)
 ------------------
-* Remove dependencies from Connext type support (`#106 <https://github.com/ros2/rosidl_typesupport/issues/106>`_)
-* Contributors: Andrea Sorbini
-
-1.1.2 (2021-03-18)
-------------------
-* Expose C++ typesupport generation via rosidl generate CLI (`#104 <https://github.com/ros2/rosidl_typesupport/issues/104>`_)
-* Contributors: Michel Hidalgo
-
-1.1.1 (2021-01-25)
-------------------
-* Remove type_support_dispatch.cpp files. (`#101 <https://github.com/ros2/rosidl_typesupport/issues/101>`_)
-* Defer path resolution of rosidl typesupport libraries to dynamic linker. (`#98 <https://github.com/ros2/rosidl_typesupport/issues/98>`_)
-* Ensure typesupport handle functions do not throw. (`#99 <https://github.com/ros2/rosidl_typesupport/issues/99>`_)
-* Contributors: Chris Lalancette, Michel Hidalgo
-
-1.1.0 (2020-12-08)
-------------------
-* Explicitly check lib pointer for null (`#95 <https://github.com/ros2/rosidl_typesupport/issues/95>`_)
-* Update Quality Declaration to QL 1 (`#96 <https://github.com/ros2/rosidl_typesupport/issues/96>`_)
-* Update the maintainers (`#89 <https://github.com/ros2/rosidl_typesupport/issues/89>`_)
+* Update Quality Declaration to QL 1 (`#97 <https://github.com/ros2/rosidl_typesupport/issues/97>`_)
+* De-deplicate type_support_map.h header (`#83 <https://github.com/ros2/rosidl_typesupport/issues/83>`_)
 * Added benchmark test to rosidl_typesupport_c/cpp (`#84 <https://github.com/ros2/rosidl_typesupport/issues/84>`_)
-* Handle rcpputils::find_library_path() failure (`#85 <https://github.com/ros2/rosidl_typesupport/issues/85>`_)
-* De-duplicate type_support_map.h header (`#81 <https://github.com/ros2/rosidl_typesupport/issues/81>`_) 
+* Handle rcpputils::find_library_path() failure. (`#85 <https://github.com/ros2/rosidl_typesupport/issues/85>`_)
 * Add fault injection macros and unit tests (`#80 <https://github.com/ros2/rosidl_typesupport/issues/80>`_)
-* Add Security Vulnerability Policy pointing to REP-2006 (`#76 <https://github.com/ros2/rosidl_typesupport/issues/76>`_)
+* Add Security Vulnerability Policy pointing to REP-2006. (`#76 <https://github.com/ros2/rosidl_typesupport/issues/76>`_)
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette, Jose Luis Rivero, Louise Poubel, Michel Hidalgo, Stephen Brawner
 
 1.0.0 (2020-05-26)

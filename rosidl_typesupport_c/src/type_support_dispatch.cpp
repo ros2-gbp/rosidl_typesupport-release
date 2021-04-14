@@ -12,19 +12,4 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "rosidl_typesupport_cpp/service_type_support_dispatch.hpp"
-
 #include "type_support_dispatch.hpp"
-
-namespace rosidl_typesupport_cpp
-{
-
-const rosidl_service_type_support_t *
-get_service_typesupport_handle_function(
-  const rosidl_service_type_support_t * handle, const char * identifier)
-{
-  return rosidl_typesupport_cpp::get_typesupport_handle_function<
-    rosidl_service_type_support_t>(handle, identifier);
-}
-
-}  // namespace rosidl_typesupport_cpp

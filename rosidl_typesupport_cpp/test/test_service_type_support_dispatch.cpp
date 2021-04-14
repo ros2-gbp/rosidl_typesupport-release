@@ -13,7 +13,6 @@
 // limitations under the License.
 
 #include <gtest/gtest.h>
-#include "rcutils/error_handling.h"
 #include "rcutils/testing/fault_injection.h"
 #include "rcpputils/shared_library.hpp"
 #include "rosidl_typesupport_c/type_support_map.h"
@@ -85,8 +84,6 @@ TEST(TestServiceTypeSupportDispatch, get_handle_function) {
     rosidl_typesupport_cpp::get_service_typesupport_handle_function(
       &type_support,
       "different_identifier"), nullptr);
-  EXPECT_TRUE(rcutils_error_is_set());
-  rcutils_reset_error();
 
   rosidl_service_type_support_t type_support_cpp_identifier =
     get_rosidl_service_type_support(rosidl_typesupport_cpp::typesupport_identifier);
@@ -102,8 +99,7 @@ TEST(TestServiceTypeSupportDispatch, get_handle_function) {
   ASSERT_NE(support_map.data[0], nullptr);
   auto * clib = static_cast<const rcpputils::SharedLibrary *>(support_map.data[0]);
   auto * lib = const_cast<rcpputils::SharedLibrary *>(clib);
-  ASSERT_TRUE(nullptr != lib);
-
+  ASSERT_NE(lib, nullptr);
   EXPECT_TRUE(lib->has_symbol("test_service_type_support"));
   auto * sym = lib->get_symbol("test_service_type_support");
   ASSERT_NE(sym, nullptr);
@@ -113,24 +109,18 @@ TEST(TestServiceTypeSupportDispatch, get_handle_function) {
     rosidl_typesupport_cpp::get_service_typesupport_handle_function(
       &type_support_cpp_identifier,
       "test_type_support2"), nullptr);
-  EXPECT_TRUE(rcutils_error_is_set());
-  rcutils_reset_error();
 
   // Library file exists, but loading shared library fails
-  EXPECT_EQ(
+  EXPECT_THROW(
     rosidl_typesupport_cpp::get_service_typesupport_handle_function(
       &type_support_cpp_identifier,
-      "test_type_support3"), nullptr);
-  EXPECT_TRUE(rcutils_error_is_set());
-  rcutils_reset_error();
+      "test_type_support3"), std::runtime_error);
 
   // Library doesn't exist
   EXPECT_EQ(
     rosidl_typesupport_cpp::get_service_typesupport_handle_function(
       &type_support_cpp_identifier,
       "test_type_support4"), nullptr);
-  EXPECT_TRUE(rcutils_error_is_set());
-  rcutils_reset_error();
 }
 
 TEST(TestServiceTypeSupportDispatch, get_service_typesupport_maybe_fail_test)
@@ -144,12 +134,13 @@ TEST(TestServiceTypeSupportDispatch, get_service_typesupport_maybe_fail_test)
   RCUTILS_FAULT_INJECTION_TEST(
   {
     // load library and find symbols
-    auto * result = rosidl_typesupport_cpp::get_service_typesupport_handle_function(
-      &type_support_cpp_identifier,
-      "test_type_support1");
-    if (nullptr == result) {
-      EXPECT_TRUE(rcutils_error_is_set());
-      rcutils_reset_error();
+    try {
+      auto * result = rosidl_typesupport_cpp::get_service_typesupport_handle_function(
+        &type_support_cpp_identifier,
+        "test_type_support1");
+      EXPECT_NE(result, nullptr);
+    } catch (const std::runtime_error &) {
+    } catch (...) {
     }
   });
 }

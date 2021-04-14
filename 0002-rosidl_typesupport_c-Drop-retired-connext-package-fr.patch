@@ -1,0 +1,25 @@
+From 1394ccc0d876d252237ffd2f2bc17e4b588c91f8 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Steven!=20Ragnar=C3=B6k?=
+ <nuclearsandwich@users.noreply.github.com>
+Date: Wed, 14 Apr 2021 10:44:17 -0700
+Subject: [PATCH 2/2] rosidl_typesupport_c: Drop retired connext package from
+ suggestions.
+
+---
+ debian/control.em | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/debian/control.em b/debian/control.em
+index eb38f87..94d5b48 100644
+--- a/debian/control.em
++++ b/debian/control.em
+@@ -11,5 +11,5 @@ Architecture: any
+ Depends: ${shlibs:Depends}, ${misc:Depends}, @(', '.join(Depends))
+ @[if Conflicts]Conflicts: @(', '.join(Conflicts))@\n@[end if]@
+ @[if Replaces]Replaces: @(', '.join(Replaces))@\n@[end if]@
+-Suggests: ros-rolling-rosidl-typesupport-connext-c, ros-rolling-rosidl-typesupport-fastrtps-c
++Suggests: ros-@(Rosdistro)-rosidl-typesupport-fastrtps-c
+ Description: @(Description)
+-- 
+2.31.0
+

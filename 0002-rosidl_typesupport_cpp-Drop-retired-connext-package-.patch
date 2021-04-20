@@ -1,4 +1,4 @@
-From 2a4319b16d0e9ef5e2de7285b6d5c1701d3b3228 Mon Sep 17 00:00:00 2001
+From 20e6bcdf81c36f77fa405a2327a19be07c2a49f5 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Steven!=20Ragnar=C3=B6k?=
  <nuclearsandwich@users.noreply.github.com>
 Date: Wed, 14 Apr 2021 10:43:44 -0700
@@ -21,5 +21,5 @@ index e9d60d3..4563a32 100644
 +Suggests: ros-@(Rosdistro)-rosidl-typesupport-fastrtps-cpp
  Description: @(Description)
 -- 
-2.31.0
+2.30.2
 

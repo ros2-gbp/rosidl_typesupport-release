@@ -1,0 +1,22 @@
+From 5592420bff3887450b160e8c58f28755ce3b471b Mon Sep 17 00:00:00 2001
+From: Jacob Perron <jacob@openrobotics.org>
+Date: Fri, 24 Apr 2020 21:07:51 -0700
+Subject: [PATCH] Add Suggests for vendor typesupport packages.
+
+---
+ debian/control.em | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/debian/control.em b/debian/control.em
+index 6d7b65c..94d5b48 100644
+--- a/debian/control.em
++++ b/debian/control.em
+@@ -11,4 +11,5 @@ Architecture: any
+ Depends: ${shlibs:Depends}, ${misc:Depends}, @(', '.join(Depends))
+ @[if Conflicts]Conflicts: @(', '.join(Conflicts))@\n@[end if]@
+ @[if Replaces]Replaces: @(', '.join(Replaces))@\n@[end if]@
++Suggests: ros-@(Rosdistro)-rosidl-typesupport-fastrtps-c
+ Description: @(Description)
+-- 
+2.35.1
+

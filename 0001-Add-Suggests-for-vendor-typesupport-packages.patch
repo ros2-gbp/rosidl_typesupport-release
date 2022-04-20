@@ -1,4 +1,4 @@
-From e85c466f957eefda5b64782a052b77cb7ea0d9ac Mon Sep 17 00:00:00 2001
+From 98b021bb0ef1545cf35fae3030bcb659b304414f Mon Sep 17 00:00:00 2001
 From: Jacob Perron <jacob@openrobotics.org>
 Date: Fri, 24 Apr 2020 23:54:56 -0700
 Subject: [PATCH] Add Suggests for vendor typesupport packages.
@@ -18,5 +18,5 @@ index 6d7b65c..4563a32 100644
 +Suggests: ros-@(Rosdistro)-rosidl-typesupport-fastrtps-cpp
  Description: @(Description)
 -- 
-2.17.1
+2.25.1
 

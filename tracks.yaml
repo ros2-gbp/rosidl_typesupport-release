@@ -264,7 +264,7 @@ tracks:
     - git-bloom-generate -y rosrpm --prefix release/:{ros_distro} :{ros_distro} -i
       :{release_inc} --os-name rhel
     devel_branch: rolling
-    last_version: 2.1.0
+    last_version: 2.2.0
     name: rosidl_typesupport
     patches: null
     release_inc: '1'

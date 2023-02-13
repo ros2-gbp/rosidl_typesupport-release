@@ -1,3 +1,31 @@
+## rosidl_typesupport (rolling) - 2.3.0-1
+
+The packages in the `rosidl_typesupport` repository were released into the `rolling` distro by running `/usr/bin/bloom-release --track rolling --rosdistro rolling rosidl_typesupport` on `Mon, 13 Feb 2023 20:34:20 -0000`
+
+These packages were released:
+- `rosidl_typesupport_c`
+- `rosidl_typesupport_cpp`
+
+These packages were explicitly ignored:
+- `rosidl_typesupport_tests`
+
+Version of package(s) in repository `rosidl_typesupport`:
+
+- upstream repository: https://github.com/ros2/rosidl_typesupport.git
+- release repository: https://github.com/ros2-gbp/rosidl_typesupport-release.git
+- rosdistro version: `2.2.0-1`
+- old version: `2.2.0-1`
+- new version: `2.3.0-1`
+
+Versions of tools used:
+
+- bloom version: `0.11.2`
+- catkin_pkg version: `0.5.2`
+- rosdep version: `0.22.1`
+- rosdistro version: `0.9.0`
+- vcstools version: `0.1.42`
+
+
 ## rosidl_typesupport (rolling) - 2.2.0-1
 
 The packages in the `rosidl_typesupport` repository were released into the `rolling` distro by running `/usr/bin/bloom-release --track rolling --rosdistro rolling rosidl_typesupport` on `Tue, 13 Sep 2022 19:35:35 -0000`

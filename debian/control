@@ -1,0 +1,13 @@
+Source: ros-foxy-rosidl-typesupport-c
+Section: misc
+Priority: optional
+Maintainer: Dirk Thomas <dthomas@osrfoundation.org>
+Build-Depends: debhelper (>= 9.0.0), ros-foxy-ament-cmake-ros, ros-foxy-ament-lint-auto <!nocheck>, ros-foxy-ament-lint-common <!nocheck>, ros-foxy-mimick-vendor <!nocheck>, ros-foxy-performance-test-fixture <!nocheck>, ros-foxy-rcpputils, ros-foxy-rcutils, ros-foxy-rosidl-runtime-c, ros-foxy-rosidl-typesupport-connext-c, ros-foxy-rosidl-typesupport-introspection-c, ros-foxy-ros-workspace
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-foxy-rosidl-typesupport-c
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-foxy-ament-cmake-core, ros-foxy-rcpputils, ros-foxy-rcutils, ros-foxy-rosidl-runtime-c, ros-foxy-rosidl-typesupport-interface, ros-foxy-ros-workspace
+Suggests: ros-foxy-rosidl-typesupport-connext-c, ros-foxy-rosidl-typesupport-fastrtps-c
+Description: Generate the type support for C messages.

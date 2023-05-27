@@ -1,10 +1,6 @@
 @# Included from rosidl_typesupport_c/resource/idl__type_support.c.em
 @{
-from rosidl_generator_c import idl_structure_type_to_c_typename
-from rosidl_generator_type_description import GET_DESCRIPTION_FUNC
-from rosidl_generator_type_description import GET_HASH_FUNC
-from rosidl_generator_type_description import GET_SOURCES_FUNC
-from rosidl_pycommon import convert_camel_case_to_lower_case_underscore
+from rosidl_cmake import convert_camel_case_to_lower_case_underscore
 include_parts = [package_name] + list(interface_path.parents[0].parts) + [
     'detail', convert_camel_case_to_lower_case_underscore(interface_path.stem)]
 include_base = '/'.join(include_parts)
@@ -12,9 +8,8 @@ include_base = '/'.join(include_parts)
 header_files = [
     'cstddef',
     'rosidl_runtime_c/message_type_support_struct.h',
+    package_name + '/msg/rosidl_typesupport_c__visibility_control.h',
     include_base + '__struct.h',
-    include_base + '__type_support.h',
-    include_base + '__functions.h',
 ]
 if len(type_supports) != 1:
     header_files += [
@@ -101,9 +96,6 @@ static const rosidl_message_type_support_t @(message.structure.namespaced_type.n
   rosidl_typesupport_c__typesupport_identifier,
   reinterpret_cast<const type_support_map_t *>(&_@(message.structure.namespaced_type.name)_message_typesupport_map),
   rosidl_typesupport_c__get_message_typesupport_handle_function,
-  &@(idl_structure_type_to_c_typename(message.structure.namespaced_type))__@(GET_HASH_FUNC),
-  &@(idl_structure_type_to_c_typename(message.structure.namespaced_type))__@(GET_DESCRIPTION_FUNC),
-  &@(idl_structure_type_to_c_typename(message.structure.namespaced_type))__@(GET_SOURCES_FUNC),
 };
 
 }  // namespace rosidl_typesupport_c
@@ -133,6 +125,7 @@ extern "C"
 {
 #endif
 
+ROSIDL_TYPESUPPORT_C_EXPORT_@(package_name)
 const rosidl_message_type_support_t *
 ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_c, @(', '.join([package_name] + list(interface_path.parents[0].parts))), @(message.structure.namespaced_type.name))() {
 @[if len(type_supports) != 1]@

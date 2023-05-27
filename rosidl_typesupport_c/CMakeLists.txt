@@ -7,10 +7,9 @@ if(NOT CMAKE_C_STANDARD)
   set(CMAKE_C_STANDARD 11)
 endif()
 
-# Default to C++17
+# Default to C++14
 if(NOT CMAKE_CXX_STANDARD)
-  set(CMAKE_CXX_STANDARD 17)
-  set(CMAKE_CXX_STANDARD_REQUIRED ON)
+  set(CMAKE_CXX_STANDARD 14)
 endif()
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -21,36 +20,33 @@ find_package(rcpputils REQUIRED)
 find_package(rcutils REQUIRED)
 find_package(rosidl_runtime_c REQUIRED)
 
-ament_export_dependencies(rcutils)
 ament_export_dependencies(rcpputils)
 ament_export_dependencies(rosidl_runtime_c)
 ament_export_dependencies(rosidl_typesupport_interface)
+
+ament_export_include_directories(include)
 
 ament_python_install_package(${PROJECT_NAME})
 
 add_library(${PROJECT_NAME}
   src/identifier.c
   src/message_type_support_dispatch.cpp
-  src/service_type_support_dispatch.cpp)
+  src/service_type_support_dispatch.cpp
+  src/type_support_dispatch.cpp)
 if(WIN32)
   target_compile_definitions(${PROJECT_NAME}
     PRIVATE "ROSIDL_TYPESUPPORT_C_BUILDING_DLL")
 endif()
 target_include_directories(${PROJECT_NAME} PUBLIC
   "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
-  "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>")
+  "$<INSTALL_INTERFACE:include>")
 
-target_link_libraries(${PROJECT_NAME} PUBLIC
-  rosidl_runtime_c::rosidl_runtime_c)
-target_link_libraries(${PROJECT_NAME} PRIVATE
-  rcpputils::rcpputils
-  rcutils::rcutils)
-
-# Export old-style CMake variables
-ament_export_include_directories("include/${PROJECT_NAME}")
+ament_target_dependencies(${PROJECT_NAME}
+  "rcpputils"
+  "rcutils"
+  "rosidl_runtime_c"
+)
 ament_export_libraries(${PROJECT_NAME})
-
-# Export modern CMake targets
 ament_export_targets(${PROJECT_NAME})
 
 ament_index_register_resource("rosidl_runtime_packages")
@@ -68,7 +64,10 @@ if(BUILD_TESTING)
 
   add_library(rosidl_typesupport_c__test_type_support1
     test/test_type_support.c)
-  target_link_libraries(rosidl_typesupport_c__test_type_support1 ${PROJECT_NAME})
+  target_include_directories(rosidl_typesupport_c__test_type_support1 PRIVATE include)
+  ament_target_dependencies(rosidl_typesupport_c__test_type_support1
+    "rosidl_runtime_c"
+  )
   add_custom_command(TARGET rosidl_typesupport_c__test_type_support1 POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy
     $<TARGET_FILE:rosidl_typesupport_c__test_type_support1>
@@ -77,7 +76,10 @@ if(BUILD_TESTING)
   # This same library is added a second type with a new name for additional tests
   add_library(rosidl_typesupport_c__test_type_support2
     test/test_type_support.c)
-  target_link_libraries(rosidl_typesupport_c__test_type_support2 ${PROJECT_NAME})
+  target_include_directories(rosidl_typesupport_c__test_type_support2 PRIVATE include)
+  ament_target_dependencies(rosidl_typesupport_c__test_type_support2
+    "rosidl_runtime_c"
+  )
   add_custom_command(TARGET rosidl_typesupport_c__test_type_support2 POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy
     $<TARGET_FILE:rosidl_typesupport_c__test_type_support2>
@@ -92,7 +94,6 @@ if(BUILD_TESTING)
     target_link_libraries(test_message_type_support
       ${PROJECT_NAME}
       mimick
-      rcpputils::rcpputils
     )
     target_compile_definitions(test_message_type_support PUBLIC RCUTILS_ENABLE_FAULT_INJECTION)
   endif()
@@ -106,7 +107,6 @@ if(BUILD_TESTING)
     target_link_libraries(test_service_type_support
       ${PROJECT_NAME}
       mimick
-      rcpputils::rcpputils
     )
     target_compile_definitions(test_service_type_support PUBLIC RCUTILS_ENABLE_FAULT_INJECTION)
   endif()
@@ -123,13 +123,10 @@ if(BUILD_TESTING)
     "LD_LIBRARY_PATH=${TEST_LIB_DIR}"
     "PATH=${TEST_LIB_DIR}")
   if(TARGET benchmark_type_support_dispatch)
-    target_link_libraries(benchmark_type_support_dispatch
-      ${PROJECT_NAME}
-      rcpputils::rcpputils)
+    target_link_libraries(benchmark_type_support_dispatch ${PROJECT_NAME})
+    ament_target_dependencies(benchmark_type_support_dispatch rcpputils)
+    target_include_directories(benchmark_type_support_dispatch PRIVATE include)
   endif()
-
-  find_package(ament_cmake_pytest REQUIRED)
-  ament_add_pytest_test(test_cli_extension test/test_cli_extension.py)
 endif()
 
 if(BUILD_SHARED_LIBS)
@@ -152,7 +149,7 @@ install(
 )
 install(
   DIRECTORY include/
-  DESTINATION include/${PROJECT_NAME}
+  DESTINATION include
 )
 install(
   TARGETS ${PROJECT_NAME} EXPORT ${PROJECT_NAME}

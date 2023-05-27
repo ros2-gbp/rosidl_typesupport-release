@@ -13,7 +13,6 @@
 // limitations under the License.
 
 #include "rcpputils/shared_library.hpp"
-#include "rcutils/macros.h"
 #include "rosidl_typesupport_c/identifier.h"
 #include "rosidl_typesupport_c/message_type_support_dispatch.h"
 #include "rosidl_typesupport_c/service_type_support_dispatch.h"
@@ -38,15 +37,12 @@ constexpr const char * symbols[map_size] = {
 
 rosidl_message_type_support_t get_rosidl_message_type_support(const char * identifier)
 {
-  return {identifier, nullptr, nullptr, nullptr, nullptr, nullptr};
+  return {identifier, nullptr, nullptr};
 }
 
 rosidl_service_type_support_t get_rosidl_service_type_support(const char * identifier)
 {
-  return {
-    identifier,
-    nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr
-  };
+  return {identifier, nullptr, nullptr};
 }
 
 type_support_map_t get_typesupport_map(void ** library_array)
@@ -71,7 +67,6 @@ BENCHMARK_F(PerformanceTest, message_typesupport_handle_function)(benchmark::Sta
   reset_heap_counters();
 
   for (auto _ : st) {
-    RCUTILS_UNUSED(_);
     // Successfully load library and find symbols
     auto * result = rosidl_typesupport_c__get_message_typesupport_handle_function(
       &type_support_c_identifier,
@@ -100,7 +95,6 @@ BENCHMARK_F(PerformanceTest, service_typesupport_handle_function)(benchmark::Sta
   reset_heap_counters();
 
   for (auto _ : st) {
-    RCUTILS_UNUSED(_);
     // Successfully load library and find symbols
     auto * result = rosidl_typesupport_c__get_service_typesupport_handle_function(
       &type_support_c_identifier,

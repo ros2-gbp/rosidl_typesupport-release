@@ -2,24 +2,104 @@
 Changelog for package rosidl_typesupport_cpp
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1.0.3 (2023-05-27)
+3.2.0 (2023-06-07)
 ------------------
-* Added C interfaces to obtain service and action type support. (`#144 <https://github.com/ros2/rosidl_typesupport/issues/144>`_)
-* Contributors: Stefan Fabian
+* Don't override user provided compile definitions (`#145 <https://github.com/ros2/rosidl_typesupport/issues/145>`_)
+* Added C interfaces to obtain service and action type support. (`#143 <https://github.com/ros2/rosidl_typesupport/issues/143>`_)
+* Contributors: Emerson Knapp, Stefan Fabian
 
-1.0.2 (2021-04-14)
+3.1.0 (2023-04-28)
 ------------------
-* Update quality declaration links (re: `ros2/docs.ros2.org#52 <https://github.com/ros2/docs.ros2.org/issues/52>`_) (`#109 <https://github.com/ros2/rosidl_typesupport/issues/109>`_)
-* Contributors: Simon Honigmann
 
-1.0.1 (2020-12-08)
+3.0.0 (2023-04-12)
 ------------------
-* Update Quality Declaration to QL 1 (`#97 <https://github.com/ros2/rosidl_typesupport/issues/97>`_)
-* De-deplicate type_support_map.h header (`#83 <https://github.com/ros2/rosidl_typesupport/issues/83>`_)
+* Type Description Nested Support (`#141 <https://github.com/ros2/rosidl_typesupport/issues/141>`_)
+* Fix rosidl_typesupport_c/cpp exec dependencies. (`#140 <https://github.com/ros2/rosidl_typesupport/issues/140>`_)
+* Type hashes in typesupport (rep2011) (`#135 <https://github.com/ros2/rosidl_typesupport/issues/135>`_)
+* Mark benchmark _ as UNUSED. (`#134 <https://github.com/ros2/rosidl_typesupport/issues/134>`_)
+* Contributors: Chris Lalancette, Emerson Knapp
+
+2.3.1 (2023-02-24)
+------------------
+
+2.3.0 (2023-02-13)
+------------------
+* Service introspection (`#127 <https://github.com/ros2/rosidl_typesupport/issues/127>`_)
+* Update rosidl_typesupport to C++17. (`#131 <https://github.com/ros2/rosidl_typesupport/issues/131>`_)
+* [rolling] Update maintainers - 2022-11-07 (`#130 <https://github.com/ros2/rosidl_typesupport/issues/130>`_)
+* Contributors: Audrow Nash, Brian, Chris Lalancette
+
+2.2.0 (2022-09-13)
+------------------
+* Replace rosidl_cmake imports with rosidl_pycommon (`#126 <https://github.com/ros2/rosidl_typesupport/issues/126>`_)
+* Contributors: Jacob Perron
+
+2.1.0 (2022-05-04)
+------------------
+
+* Use target_link_libraries(... PRIVATE ...) in single typesupport case (`#124 <https://github.com/ros2/rosidl_typesupport/issues/124>`_)
+* rosidl CMake cleanup in rosidl_typesupport_cpp (`#123 <https://github.com/ros2/rosidl_typesupport/issues/123>`_)
+* Contributors: Shane Loretz
+
+1.5.0 (2022-03-01)
+------------------
+* Install headers to include/${PROJECT_NAME} (`#121 <https://github.com/ros2/rosidl_typesupport/issues/121>`_)
+* Contributors: Shane Loretz
+
+1.4.2 (2022-01-13)
+------------------
+* Make sure to check typesupport handles against nullptr properly (`#119 <https://github.com/ros2/rosidl_typesupport/issues/119>`_)
+* Use FindPython3 (`#118 <https://github.com/ros2/rosidl_typesupport/issues/118>`_)
+* Contributors: Chris Lalancette, Shane Loretz
+
+1.4.1 (2021-08-09)
+------------------
+* Revert "Bundle and ensure the exportation of rosidl generated targets" (`#116 <https://github.com/ros2/rosidl_typesupport/issues/116>`_)
+* Contributors: Michel Hidalgo
+
+1.4.0 (2021-07-16)
+------------------
+* Support available typesupport specification in CLI extensions (`#112 <https://github.com/ros2/rosidl_typesupport/issues/112>`_)
+* Bundle and ensure the exportation of rosidl generated targets (`#113 <https://github.com/ros2/rosidl_typesupport/issues/113>`_)
+* Contributors: Michel Hidalgo
+
+1.3.0 (2021-06-11)
+------------------
+* Fix C and C++ typesupports CLI extensions (`#111 <https://github.com/ros2/rosidl_typesupport/issues/111>`_)
+* Contributors: Michel Hidalgo
+
+1.2.1 (2021-04-06)
+------------------
+* updating quality declaration links (re: `ros2/docs.ros2.org#52 <https://github.com/ros2/docs.ros2.org/issues/52>`_) (`#108 <https://github.com/ros2/rosidl_typesupport/issues/108>`_)
+* Contributors: shonigmann
+
+1.2.0 (2021-03-25)
+------------------
+* Remove dependencies from Connext type support (`#106 <https://github.com/ros2/rosidl_typesupport/issues/106>`_)
+* Contributors: Andrea Sorbini
+
+1.1.2 (2021-03-18)
+------------------
+* Expose C++ typesupport generation via rosidl generate CLI (`#104 <https://github.com/ros2/rosidl_typesupport/issues/104>`_)
+* Contributors: Michel Hidalgo
+
+1.1.1 (2021-01-25)
+------------------
+* Remove type_support_dispatch.cpp files. (`#101 <https://github.com/ros2/rosidl_typesupport/issues/101>`_)
+* Defer path resolution of rosidl typesupport libraries to dynamic linker. (`#98 <https://github.com/ros2/rosidl_typesupport/issues/98>`_)
+* Ensure typesupport handle functions do not throw. (`#99 <https://github.com/ros2/rosidl_typesupport/issues/99>`_)
+* Contributors: Chris Lalancette, Michel Hidalgo
+
+1.1.0 (2020-12-08)
+------------------
+* Explicitly check lib pointer for null (`#95 <https://github.com/ros2/rosidl_typesupport/issues/95>`_)
+* Update Quality Declaration to QL 1 (`#96 <https://github.com/ros2/rosidl_typesupport/issues/96>`_)
+* Update the maintainers (`#89 <https://github.com/ros2/rosidl_typesupport/issues/89>`_)
 * Added benchmark test to rosidl_typesupport_c/cpp (`#84 <https://github.com/ros2/rosidl_typesupport/issues/84>`_)
-* Handle rcpputils::find_library_path() failure. (`#85 <https://github.com/ros2/rosidl_typesupport/issues/85>`_)
+* Handle rcpputils::find_library_path() failure (`#85 <https://github.com/ros2/rosidl_typesupport/issues/85>`_)
+* De-duplicate type_support_map.h header (`#81 <https://github.com/ros2/rosidl_typesupport/issues/81>`_) 
 * Add fault injection macros and unit tests (`#80 <https://github.com/ros2/rosidl_typesupport/issues/80>`_)
-* Add Security Vulnerability Policy pointing to REP-2006. (`#76 <https://github.com/ros2/rosidl_typesupport/issues/76>`_)
+* Add Security Vulnerability Policy pointing to REP-2006 (`#76 <https://github.com/ros2/rosidl_typesupport/issues/76>`_)
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette, Jose Luis Rivero, Louise Poubel, Michel Hidalgo, Stephen Brawner
 
 1.0.0 (2020-05-26)

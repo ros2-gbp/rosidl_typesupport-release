@@ -1,10 +1,6 @@
 @# Included from rosidl_typesupport_c/resource/idl__type_support.c.em
 @{
-from rosidl_generator_c import idl_structure_type_to_c_typename
-from rosidl_generator_type_description import GET_DESCRIPTION_FUNC
-from rosidl_generator_type_description import GET_HASH_FUNC
-from rosidl_generator_type_description import GET_SOURCES_FUNC
-from rosidl_pycommon import convert_camel_case_to_lower_case_underscore
+from rosidl_cmake import convert_camel_case_to_lower_case_underscore
 include_parts = [package_name] + list(interface_path.parents[0].parts) + [
     'detail', convert_camel_case_to_lower_case_underscore(interface_path.stem)]
 include_base = '/'.join(include_parts)
@@ -14,7 +10,6 @@ header_files = [
     'rosidl_runtime_c/message_type_support_struct.h',
     include_base + '__struct.h',
     include_base + '__type_support.h',
-    include_base + '__functions.h',
 ]
 if len(type_supports) != 1:
     header_files += [
@@ -101,9 +96,6 @@ static const rosidl_message_type_support_t @(message.structure.namespaced_type.n
   rosidl_typesupport_c__typesupport_identifier,
   reinterpret_cast<const type_support_map_t *>(&_@(message.structure.namespaced_type.name)_message_typesupport_map),
   rosidl_typesupport_c__get_message_typesupport_handle_function,
-  &@(idl_structure_type_to_c_typename(message.structure.namespaced_type))__@(GET_HASH_FUNC),
-  &@(idl_structure_type_to_c_typename(message.structure.namespaced_type))__@(GET_DESCRIPTION_FUNC),
-  &@(idl_structure_type_to_c_typename(message.structure.namespaced_type))__@(GET_SOURCES_FUNC),
 };
 
 }  // namespace rosidl_typesupport_c

@@ -2,36 +2,10 @@
 Changelog for package rosidl_typesupport_cpp
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-3.0.1 (2023-07-14)
+2.0.1 (2023-07-18)
 ------------------
-* Don't override user provided compile definitions (`#146 <https://github.com/ros2/rosidl_typesupport/issues/146>`_)
-* Contributors: Shane Loretz
-
-3.0.0 (2023-04-12)
-------------------
-* Type Description Nested Support (`#141 <https://github.com/ros2/rosidl_typesupport/issues/141>`_)
-* Fix rosidl_typesupport_c/cpp exec dependencies. (`#140 <https://github.com/ros2/rosidl_typesupport/issues/140>`_)
-* Type hashes in typesupport (rep2011) (`#135 <https://github.com/ros2/rosidl_typesupport/issues/135>`_)
-* Mark benchmark _ as UNUSED. (`#134 <https://github.com/ros2/rosidl_typesupport/issues/134>`_)
-* Contributors: Chris Lalancette, Emerson Knapp
-
-2.3.1 (2023-02-24)
-------------------
-
-2.3.0 (2023-02-13)
-------------------
-* Service introspection (`#127 <https://github.com/ros2/rosidl_typesupport/issues/127>`_)
-* Update rosidl_typesupport to C++17. (`#131 <https://github.com/ros2/rosidl_typesupport/issues/131>`_)
-* [rolling] Update maintainers - 2022-11-07 (`#130 <https://github.com/ros2/rosidl_typesupport/issues/130>`_)
-* Contributors: Audrow Nash, Brian, Chris Lalancette
-
-2.2.0 (2022-09-13)
-------------------
-* Replace rosidl_cmake imports with rosidl_pycommon (`#126 <https://github.com/ros2/rosidl_typesupport/issues/126>`_)
-* Contributors: Jacob Perron
-
-2.1.0 (2022-05-04)
-------------------
+* Don't override user provided compile definitions (backport `#145 <https://github.com/ros2/rosidl_typesupport/issues/145>`_) (`#147 <https://github.com/ros2/rosidl_typesupport/issues/147>`_)
+* Contributors: mergify[bot]
 
 * Use target_link_libraries(... PRIVATE ...) in single typesupport case (`#124 <https://github.com/ros2/rosidl_typesupport/issues/124>`_)
 * rosidl CMake cleanup in rosidl_typesupport_cpp (`#123 <https://github.com/ros2/rosidl_typesupport/issues/123>`_)
@@ -93,7 +67,7 @@ Changelog for package rosidl_typesupport_cpp
 * Update the maintainers (`#89 <https://github.com/ros2/rosidl_typesupport/issues/89>`_)
 * Added benchmark test to rosidl_typesupport_c/cpp (`#84 <https://github.com/ros2/rosidl_typesupport/issues/84>`_)
 * Handle rcpputils::find_library_path() failure (`#85 <https://github.com/ros2/rosidl_typesupport/issues/85>`_)
-* De-duplicate type_support_map.h header (`#81 <https://github.com/ros2/rosidl_typesupport/issues/81>`_)
+* De-duplicate type_support_map.h header (`#81 <https://github.com/ros2/rosidl_typesupport/issues/81>`_) 
 * Add fault injection macros and unit tests (`#80 <https://github.com/ros2/rosidl_typesupport/issues/80>`_)
 * Add Security Vulnerability Policy pointing to REP-2006 (`#76 <https://github.com/ros2/rosidl_typesupport/issues/76>`_)
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette, Jose Luis Rivero, Louise Poubel, Michel Hidalgo, Stephen Brawner

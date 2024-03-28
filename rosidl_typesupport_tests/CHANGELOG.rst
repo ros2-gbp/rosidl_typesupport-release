@@ -2,6 +2,11 @@
 Changelog for package rosidl_typesupport_tests
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+3.2.1 (2024-03-27)
+------------------
+* Suppress uncrustify on long lines. (`#152 <https://github.com/ros2/rosidl_typesupport/issues/152>`_)
+* Contributors: Chris Lalancette
+
 3.2.0 (2023-06-07)
 ------------------
 

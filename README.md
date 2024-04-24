@@ -1,3 +1,31 @@
+## rosidl_typesupport (jazzy) - 3.2.2-1
+
+The packages in the `rosidl_typesupport` repository were released into the `jazzy` distro by running `/usr/bin/bloom-release --track jazzy --rosdistro jazzy rosidl_typesupport` on `Wed, 24 Apr 2024 16:53:58 -0000`
+
+These packages were released:
+- `rosidl_typesupport_c`
+- `rosidl_typesupport_cpp`
+
+These packages were explicitly ignored:
+- `rosidl_typesupport_tests`
+
+Version of package(s) in repository `rosidl_typesupport`:
+
+- upstream repository: https://github.com/ros2/rosidl_typesupport.git
+- release repository: https://github.com/ros2-gbp/rosidl_typesupport-release.git
+- rosdistro version: `3.2.1-2`
+- old version: `3.2.1-2`
+- new version: `3.2.2-1`
+
+Versions of tools used:
+
+- bloom version: `0.12.0`
+- catkin_pkg version: `1.0.0`
+- rosdep version: `0.22.2`
+- rosdistro version: `0.9.0`
+- vcstools version: `0.1.42`
+
+
 ## rosidl_typesupport (rolling) - 3.2.1-1
 
 The packages in the `rosidl_typesupport` repository were released into the `rolling` distro by running `/usr/bin/bloom-release rosidl_typesupport --rosdistro rolling` on `Thu, 28 Mar 2024 04:06:38 -0000`

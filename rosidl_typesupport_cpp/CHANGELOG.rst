@@ -2,54 +2,15 @@
 Changelog for package rosidl_typesupport_cpp
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-3.3.1 (2024-06-17)
+2.0.2 (2024-11-25)
 ------------------
-* Add mechanism to disable workaround for dependency groups (`#157 <https://github.com/ros2/rosidl_typesupport/issues/157>`_)
-* Contributors: Scott K Logan
+* Added C interfaces to obtain service and action type support. (`#149 <https://github.com/ros2/rosidl_typesupport/issues/149>`_)
+* Contributors: Stefan Fabian
 
-3.3.0 (2024-04-26)
+2.0.1 (2023-07-18)
 ------------------
-
-3.2.1 (2024-03-27)
-------------------
-* compare string contents but string pointer addresses. (`#153 <https://github.com/ros2/rosidl_typesupport/issues/153>`_)
-* Set hints to find the python version we actually want. (`#150 <https://github.com/ros2/rosidl_typesupport/issues/150>`_)
-* Contributors: Chris Lalancette, Tomoya Fujita
-
-3.2.0 (2023-06-07)
-------------------
-* Don't override user provided compile definitions (`#145 <https://github.com/ros2/rosidl_typesupport/issues/145>`_)
-* Added C interfaces to obtain service and action type support. (`#143 <https://github.com/ros2/rosidl_typesupport/issues/143>`_)
-* Contributors: Emerson Knapp, Stefan Fabian
-
-3.1.0 (2023-04-28)
-------------------
-
-3.0.0 (2023-04-12)
-------------------
-* Type Description Nested Support (`#141 <https://github.com/ros2/rosidl_typesupport/issues/141>`_)
-* Fix rosidl_typesupport_c/cpp exec dependencies. (`#140 <https://github.com/ros2/rosidl_typesupport/issues/140>`_)
-* Type hashes in typesupport (rep2011) (`#135 <https://github.com/ros2/rosidl_typesupport/issues/135>`_)
-* Mark benchmark _ as UNUSED. (`#134 <https://github.com/ros2/rosidl_typesupport/issues/134>`_)
-* Contributors: Chris Lalancette, Emerson Knapp
-
-2.3.1 (2023-02-24)
-------------------
-
-2.3.0 (2023-02-13)
-------------------
-* Service introspection (`#127 <https://github.com/ros2/rosidl_typesupport/issues/127>`_)
-* Update rosidl_typesupport to C++17. (`#131 <https://github.com/ros2/rosidl_typesupport/issues/131>`_)
-* [rolling] Update maintainers - 2022-11-07 (`#130 <https://github.com/ros2/rosidl_typesupport/issues/130>`_)
-* Contributors: Audrow Nash, Brian, Chris Lalancette
-
-2.2.0 (2022-09-13)
-------------------
-* Replace rosidl_cmake imports with rosidl_pycommon (`#126 <https://github.com/ros2/rosidl_typesupport/issues/126>`_)
-* Contributors: Jacob Perron
-
-2.1.0 (2022-05-04)
-------------------
+* Don't override user provided compile definitions (backport `#145 <https://github.com/ros2/rosidl_typesupport/issues/145>`_) (`#147 <https://github.com/ros2/rosidl_typesupport/issues/147>`_)
+* Contributors: mergify[bot]
 
 * Use target_link_libraries(... PRIVATE ...) in single typesupport case (`#124 <https://github.com/ros2/rosidl_typesupport/issues/124>`_)
 * rosidl CMake cleanup in rosidl_typesupport_cpp (`#123 <https://github.com/ros2/rosidl_typesupport/issues/123>`_)

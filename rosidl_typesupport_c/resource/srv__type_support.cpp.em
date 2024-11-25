@@ -16,22 +16,7 @@ TEMPLATE(
 }@
 
 @{
-TEMPLATE(
-    'msg__type_support.cpp.em',
-    package_name=package_name, interface_path=interface_path,
-    message=service.event_message, include_directives=include_directives,
-    type_supports=type_supports)
-}@
-
-@{
-from rosidl_generator_c import idl_structure_type_to_c_typename
-from rosidl_generator_type_description import GET_DESCRIPTION_FUNC
-from rosidl_generator_type_description import GET_HASH_FUNC
-from rosidl_generator_type_description import GET_SOURCES_FUNC
-from rosidl_parser.definition import SERVICE_EVENT_MESSAGE_SUFFIX
-from rosidl_parser.definition import SERVICE_REQUEST_MESSAGE_SUFFIX
-from rosidl_parser.definition import SERVICE_RESPONSE_MESSAGE_SUFFIX
-from rosidl_pycommon import convert_camel_case_to_lower_case_underscore
+from rosidl_cmake import convert_camel_case_to_lower_case_underscore
 include_parts = [package_name] + list(interface_path.parents[0].parts) + [
     'detail', convert_camel_case_to_lower_case_underscore(interface_path.stem)]
 include_base = '/'.join(include_parts)
@@ -48,8 +33,6 @@ if len(type_supports) != 1:
         'rosidl_typesupport_c/type_support_map.h',
     ]
 header_files.append('rosidl_typesupport_interface/macros.h')
-header_files.append('service_msgs/msg/service_event_info.h')
-header_files.append('builtin_interfaces/msg/time.h')
 }@
 @[for header_file in header_files]@
 @[    if header_file in include_directives]@
@@ -70,6 +53,7 @@ namespace @(ns)
 
 namespace rosidl_typesupport_c
 {
+
 typedef struct _@(service.namespaced_type.name)_type_support_ids_t
 {
   const char * typesupport_identifier[@(len(type_supports))];
@@ -125,20 +109,6 @@ static const rosidl_service_type_support_t @(service.namespaced_type.name)_servi
   rosidl_typesupport_c__typesupport_identifier,
   reinterpret_cast<const type_support_map_t *>(&_@(service.namespaced_type.name)_service_typesupport_map),
   rosidl_typesupport_c__get_service_typesupport_handle_function,
-  &@(service.namespaced_type.name)@(SERVICE_REQUEST_MESSAGE_SUFFIX)_message_type_support_handle,
-  &@(service.namespaced_type.name)@(SERVICE_RESPONSE_MESSAGE_SUFFIX)_message_type_support_handle,
-  &@(service.namespaced_type.name)@(SERVICE_EVENT_MESSAGE_SUFFIX)_message_type_support_handle,
-  ROSIDL_TYPESUPPORT_INTERFACE__SERVICE_CREATE_EVENT_MESSAGE_SYMBOL_NAME(
-    rosidl_typesupport_c,
-    @(',\n    '.join(service.namespaced_type.namespaced_name()))
-  ),
-  ROSIDL_TYPESUPPORT_INTERFACE__SERVICE_DESTROY_EVENT_MESSAGE_SYMBOL_NAME(
-    rosidl_typesupport_c,
-    @(',\n    '.join(service.namespaced_type.namespaced_name()))
-  ),
-  &@(idl_structure_type_to_c_typename(service.namespaced_type))__@(GET_HASH_FUNC),
-  &@(idl_structure_type_to_c_typename(service.namespaced_type))__@(GET_DESCRIPTION_FUNC),
-  &@(idl_structure_type_to_c_typename(service.namespaced_type))__@(GET_SOURCES_FUNC),
 };
 
 }  // namespace rosidl_typesupport_c

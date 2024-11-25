@@ -7,10 +7,9 @@ if(NOT CMAKE_C_STANDARD)
   set(CMAKE_C_STANDARD 11)
 endif()
 
-# Default to C++17
+# Default to C++14
 if(NOT CMAKE_CXX_STANDARD)
-  set(CMAKE_CXX_STANDARD 17)
-  set(CMAKE_CXX_STANDARD_REQUIRED ON)
+  set(CMAKE_CXX_STANDARD 14)
 endif()
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -88,7 +87,6 @@ if(BUILD_TESTING)
     "DYLD_LIBRARY_PATH=${TEST_LIB_DIR}"
     "LD_LIBRARY_PATH=${TEST_LIB_DIR}"
     "PATH=${TEST_LIB_DIR}")
-  ament_add_test_label(test_message_type_support mimick)
   if(TARGET test_message_type_support)
     target_link_libraries(test_message_type_support
       ${PROJECT_NAME}
@@ -103,7 +101,6 @@ if(BUILD_TESTING)
     "DYLD_LIBRARY_PATH=${TEST_LIB_DIR}"
     "LD_LIBRARY_PATH=${TEST_LIB_DIR}"
     "PATH=${TEST_LIB_DIR}")
-  ament_add_test_label(test_service_type_support mimick)
   if(TARGET test_service_type_support)
     target_link_libraries(test_service_type_support
       ${PROJECT_NAME}

@@ -1,4 +1,4 @@
-From ddbb230bbaa47da6e6db0ebf0fc1dae1cfff9b65 Mon Sep 17 00:00:00 2001
+From 02e60cd83b95b954b7b29251bb706acbe3889029 Mon Sep 17 00:00:00 2001
 From: Jacob Perron <jacob@openrobotics.org>
 Date: Fri, 24 Apr 2020 21:07:51 -0700
 Subject: [PATCH] Add Suggests for vendor typesupport packages.

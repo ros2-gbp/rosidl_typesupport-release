@@ -1,0 +1,13 @@
+Source: ros-humble-rosidl-typesupport-c
+Section: misc
+Priority: optional
+Maintainer: Chris Lalancette <clalancette@openrobotics.org>
+Build-Depends: debhelper (>= 9.0.0), ros-humble-ament-cmake-ros, ros-humble-ament-lint-auto <!nocheck>, ros-humble-ament-lint-common <!nocheck>, ros-humble-mimick-vendor <!nocheck>, ros-humble-performance-test-fixture <!nocheck>, ros-humble-rcpputils, ros-humble-rcutils, ros-humble-rosidl-runtime-c, ros-humble-rosidl-typesupport-introspection-c, ros-humble-ros-workspace
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-humble-rosidl-typesupport-c
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, python3-dev, ros-humble-ament-cmake-core, ros-humble-ament-index-python, ros-humble-rcpputils, ros-humble-rcutils, ros-humble-rosidl-cli, ros-humble-rosidl-runtime-c, ros-humble-rosidl-typesupport-interface, ros-humble-ros-workspace
+Suggests: ros-humble-rosidl-typesupport-fastrtps-c
+Description: Generate the type support for C messages.

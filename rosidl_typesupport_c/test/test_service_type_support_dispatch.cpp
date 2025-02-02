@@ -38,7 +38,10 @@ constexpr const char * symbols[map_size] = {
 
 rosidl_service_type_support_t get_rosidl_service_type_support(const char * identifier)
 {
-  return {identifier, nullptr, nullptr};
+  return {
+    identifier,
+    nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr
+  };
 }
 
 type_support_map_t get_typesupport_map(void ** library_array)
@@ -104,6 +107,7 @@ TEST(TestServiceTypeSupportDispatch, get_handle_function) {
       rosidl_typesupport_c__get_service_typesupport_handle_function(
         &type_support_c_identifier,
         "test_type_support1"), nullptr);
+    rcutils_reset_error();
   }
 
   // Successfully load library and find symbols

@@ -2,6 +2,11 @@
 Changelog for package rosidl_typesupport_c
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+3.3.2 (2025-02-02)
+------------------
+* Cleanup warning message in rosidl_typesupport_c tests. (`#161 <https://github.com/ros2/rosidl_typesupport/issues/161>`_)
+* Contributors: Chris Lalancette
+
 3.3.1 (2024-06-17)
 ------------------
 * Add mechanism to disable workaround for dependency groups (`#157 <https://github.com/ros2/rosidl_typesupport/issues/157>`_)

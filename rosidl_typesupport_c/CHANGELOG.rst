@@ -2,6 +2,12 @@
 Changelog for package rosidl_typesupport_c
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+3.3.3 (2025-04-18)
+------------------
+* Switch to ament_cmake_ros_core package (`#166 <https://github.com/ros2/rosidl_typesupport/issues/166>`_)
+* Uniform cmake requirement (`#163 <https://github.com/ros2/rosidl_typesupport/issues/163>`_)
+* Contributors: Scott K Logan, mosfet80
+
 3.3.2 (2025-02-02)
 ------------------
 * Cleanup warning message in rosidl_typesupport_c tests. (`#161 <https://github.com/ros2/rosidl_typesupport/issues/161>`_)

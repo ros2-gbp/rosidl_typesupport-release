@@ -2,6 +2,11 @@
 Changelog for package rosidl_typesupport_tests
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+3.3.3 (2025-04-18)
+------------------
+* Uniform cmake requirement (`#163 <https://github.com/ros2/rosidl_typesupport/issues/163>`_)
+* Contributors: mosfet80
+
 3.3.2 (2025-02-02)
 ------------------
 

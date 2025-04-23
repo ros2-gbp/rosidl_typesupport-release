@@ -1,0 +1,12 @@
+Source: ros-kilted-rosidl-typesupport-cpp
+Section: misc
+Priority: optional
+Maintainer: Dharini Dutia <dharini@openrobotics.org>
+Build-Depends: debhelper (>= 9.0.0), ros-kilted-ament-cmake-gtest <!nocheck>, ros-kilted-ament-cmake-pytest <!nocheck>, ros-kilted-ament-cmake-ros-core, ros-kilted-ament-lint-auto <!nocheck>, ros-kilted-ament-lint-common <!nocheck>, ros-kilted-performance-test-fixture <!nocheck>, ros-kilted-rcpputils, ros-kilted-rcutils, ros-kilted-rosidl-runtime-c, ros-kilted-rosidl-typesupport-c, ros-kilted-rosidl-typesupport-introspection-cpp, ros-kilted-ros-workspace
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-kilted-rosidl-typesupport-cpp
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, python3-dev, ros-kilted-ament-cmake-core, ros-kilted-ament-index-python, ros-kilted-rcpputils, ros-kilted-rcutils, ros-kilted-rosidl-cli, ros-kilted-rosidl-generator-c, ros-kilted-rosidl-generator-type-description, ros-kilted-rosidl-pycommon, ros-kilted-rosidl-runtime-c, ros-kilted-rosidl-runtime-cpp, ros-kilted-rosidl-typesupport-c, ros-kilted-rosidl-typesupport-interface, ros-kilted-ros-workspace
+Description: Generate the type support for C++ messages.

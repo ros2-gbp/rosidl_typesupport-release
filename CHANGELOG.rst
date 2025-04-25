@@ -2,6 +2,9 @@
 Changelog for package rosidl_typesupport_cpp
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+3.4.0 (2025-04-25)
+------------------
+
 3.3.3 (2025-04-18)
 ------------------
 * Switch to ament_cmake_ros_core package (`#166 <https://github.com/ros2/rosidl_typesupport/issues/166>`_)

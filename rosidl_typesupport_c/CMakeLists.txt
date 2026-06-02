@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.20)
+cmake_minimum_required(VERSION 3.5)
 
 project(rosidl_typesupport_c)
 
@@ -16,7 +16,7 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
-find_package(ament_cmake_ros_core REQUIRED)
+find_package(ament_cmake_ros REQUIRED)
 find_package(rcpputils REQUIRED)
 find_package(rcutils REQUIRED)
 find_package(rosidl_runtime_c REQUIRED)
@@ -83,14 +83,11 @@ if(BUILD_TESTING)
     $<TARGET_FILE:rosidl_typesupport_c__test_type_support2>
     ${TEST_LIB_DIR})
 
-  find_package(ament_cmake_gtest REQUIRED)
-
   ament_add_gtest(test_message_type_support test/test_message_type_support_dispatch.cpp
     APPEND_ENV
     "DYLD_LIBRARY_PATH=${TEST_LIB_DIR}"
     "LD_LIBRARY_PATH=${TEST_LIB_DIR}"
     "PATH=${TEST_LIB_DIR}")
-  ament_add_test_label(test_message_type_support mimick)
   if(TARGET test_message_type_support)
     target_link_libraries(test_message_type_support
       ${PROJECT_NAME}
@@ -105,7 +102,6 @@ if(BUILD_TESTING)
     "DYLD_LIBRARY_PATH=${TEST_LIB_DIR}"
     "LD_LIBRARY_PATH=${TEST_LIB_DIR}"
     "PATH=${TEST_LIB_DIR}")
-  ament_add_test_label(test_service_type_support mimick)
   if(TARGET test_service_type_support)
     target_link_libraries(test_service_type_support
       ${PROJECT_NAME}

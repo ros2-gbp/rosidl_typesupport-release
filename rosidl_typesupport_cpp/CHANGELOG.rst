@@ -2,37 +2,10 @@
 Changelog for package rosidl_typesupport_cpp
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-3.5.0 (2026-05-05)
+3.2.3 (2026-06-02)
 ------------------
 
-3.4.2 (2026-04-09)
-------------------
-* Add DEPENDS_EXPLICIT_ONLY to remove implicit dependencies (`#168 <https://github.com/ros2/rosidl_typesupport/issues/168>`_)
-* Contributors: Anthony Welte
-
-3.4.1 (2025-10-20)
-------------------
-* Remove deprecated rosidl_typesupport_cpp/type_support_map.h (`#167 <https://github.com/ros2/rosidl_typesupport/issues/167>`_)
-* Contributors: Christophe Bedard
-
-3.4.0 (2025-04-25)
-------------------
-
-3.3.3 (2025-04-18)
-------------------
-* Switch to ament_cmake_ros_core package (`#166 <https://github.com/ros2/rosidl_typesupport/issues/166>`_)
-* Uniform cmake requirement (`#163 <https://github.com/ros2/rosidl_typesupport/issues/163>`_)
-* Contributors: Scott K Logan, mosfet80
-
-3.3.2 (2025-02-02)
-------------------
-
-3.3.1 (2024-06-17)
-------------------
-* Add mechanism to disable workaround for dependency groups (`#157 <https://github.com/ros2/rosidl_typesupport/issues/157>`_)
-* Contributors: Scott K Logan
-
-3.3.0 (2024-04-26)
+3.2.2 (2024-04-24)
 ------------------
 
 3.2.1 (2024-03-27)
@@ -136,7 +109,7 @@ Changelog for package rosidl_typesupport_cpp
 * Update the maintainers (`#89 <https://github.com/ros2/rosidl_typesupport/issues/89>`_)
 * Added benchmark test to rosidl_typesupport_c/cpp (`#84 <https://github.com/ros2/rosidl_typesupport/issues/84>`_)
 * Handle rcpputils::find_library_path() failure (`#85 <https://github.com/ros2/rosidl_typesupport/issues/85>`_)
-* De-duplicate type_support_map.h header (`#81 <https://github.com/ros2/rosidl_typesupport/issues/81>`_)
+* De-duplicate type_support_map.h header (`#81 <https://github.com/ros2/rosidl_typesupport/issues/81>`_) 
 * Add fault injection macros and unit tests (`#80 <https://github.com/ros2/rosidl_typesupport/issues/80>`_)
 * Add Security Vulnerability Policy pointing to REP-2006 (`#76 <https://github.com/ros2/rosidl_typesupport/issues/76>`_)
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette, Jose Luis Rivero, Louise Poubel, Michel Hidalgo, Stephen Brawner

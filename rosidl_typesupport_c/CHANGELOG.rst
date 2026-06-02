@@ -2,41 +2,13 @@
 Changelog for package rosidl_typesupport_c
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-3.5.0 (2026-05-05)
+3.2.3 (2026-06-02)
 ------------------
 
-3.4.2 (2026-04-09)
+3.2.2 (2024-04-24)
 ------------------
-* Add DEPENDS_EXPLICIT_ONLY to remove implicit dependencies (`#168 <https://github.com/ros2/rosidl_typesupport/issues/168>`_)
-* Contributors: Anthony Welte
-
-3.4.1 (2025-10-20)
-------------------
-
-3.4.0 (2025-04-25)
-------------------
-
-3.3.3 (2025-04-18)
-------------------
-* Switch to ament_cmake_ros_core package (`#166 <https://github.com/ros2/rosidl_typesupport/issues/166>`_)
-* Uniform cmake requirement (`#163 <https://github.com/ros2/rosidl_typesupport/issues/163>`_)
-* Contributors: Scott K Logan, mosfet80
-
-3.3.2 (2025-02-02)
-------------------
-* Cleanup warning message in rosidl_typesupport_c tests. (`#161 <https://github.com/ros2/rosidl_typesupport/issues/161>`_)
-* Contributors: Chris Lalancette
-
-3.3.1 (2024-06-17)
-------------------
-* Add mechanism to disable workaround for dependency groups (`#157 <https://github.com/ros2/rosidl_typesupport/issues/157>`_)
-* Add 'mimick' label to tests which use Mimick (`#158 <https://github.com/ros2/rosidl_typesupport/issues/158>`_)
-* Contributors: Scott K Logan
-
-3.3.0 (2024-04-26)
-------------------
-* Fixed warnings - strict-prototypes (`#155 <https://github.com/ros2/rosidl_typesupport/issues/155>`_)
-* Contributors: Alejandro Hernández Cordero
+* Fixed warnings - strict-prototypes (`#155 <https://github.com/ros2/rosidl_typesupport/issues/155>`_) (`#156 <https://github.com/ros2/rosidl_typesupport/issues/156>`_)
+* Contributors: mergify[bot]
 
 3.2.1 (2024-03-27)
 ------------------

@@ -104,7 +104,6 @@ TEST(TestMessageTypeSupportDispatch, get_handle_function) {
       rosidl_typesupport_c__get_message_typesupport_handle_function(
         &type_support_c_identifier,
         "test_type_support1"), nullptr);
-    rcutils_reset_error();
   }
 
   // Successfully load library and find symbols

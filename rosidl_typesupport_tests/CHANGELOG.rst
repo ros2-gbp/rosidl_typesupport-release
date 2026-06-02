@@ -2,32 +2,10 @@
 Changelog for package rosidl_typesupport_tests
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-3.5.0 (2026-05-05)
+3.2.3 (2026-06-02)
 ------------------
 
-3.4.2 (2026-04-09)
-------------------
-* pass all tests for rmw_cyclonedds_cpp. (`#171 <https://github.com/ros2/rosidl_typesupport/issues/171>`_)
-* Contributors: Tomoya Fujita
-
-3.4.1 (2025-10-20)
-------------------
-
-3.4.0 (2025-04-25)
-------------------
-
-3.3.3 (2025-04-18)
-------------------
-* Uniform cmake requirement (`#163 <https://github.com/ros2/rosidl_typesupport/issues/163>`_)
-* Contributors: mosfet80
-
-3.3.2 (2025-02-02)
-------------------
-
-3.3.1 (2024-06-17)
-------------------
-
-3.3.0 (2024-04-26)
+3.2.2 (2024-04-24)
 ------------------
 
 3.2.1 (2024-03-27)

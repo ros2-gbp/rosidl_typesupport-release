@@ -1,0 +1,12 @@
+Source: ros-jazzy-rosidl-typesupport-cpp
+Section: misc
+Priority: optional
+Maintainer: Dharini Dutia <dharini@openrobotics.org>
+Build-Depends: debhelper (>= 9.0.0), ros-jazzy-ament-cmake-ros, ros-jazzy-ament-lint-auto <!nocheck>, ros-jazzy-ament-lint-common <!nocheck>, ros-jazzy-performance-test-fixture <!nocheck>, ros-jazzy-rcpputils, ros-jazzy-rcutils, ros-jazzy-rosidl-runtime-c, ros-jazzy-rosidl-typesupport-c, ros-jazzy-rosidl-typesupport-introspection-cpp, ros-jazzy-ros-workspace
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-jazzy-rosidl-typesupport-cpp
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, python3-dev, ros-jazzy-ament-cmake-core, ros-jazzy-ament-index-python, ros-jazzy-rcpputils, ros-jazzy-rcutils, ros-jazzy-rosidl-cli, ros-jazzy-rosidl-generator-c, ros-jazzy-rosidl-generator-type-description, ros-jazzy-rosidl-pycommon, ros-jazzy-rosidl-runtime-c, ros-jazzy-rosidl-runtime-cpp, ros-jazzy-rosidl-typesupport-c, ros-jazzy-rosidl-typesupport-interface, ros-jazzy-ros-workspace
+Description: Generate the type support for C++ messages.

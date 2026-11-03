@@ -1,23 +1,18 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.20)
 
 project(rosidl_typesupport_cpp)
-
-# Default to C++17
-if(NOT CMAKE_CXX_STANDARD)
-  set(CMAKE_CXX_STANDARD 17)
-  set(CMAKE_CXX_STANDARD_REQUIRED ON)
-endif()
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
-find_package(ament_cmake_ros REQUIRED)
+find_package(ament_cmake_ros_core REQUIRED)
 find_package(rcutils REQUIRED)
 find_package(rcpputils REQUIRED)
 find_package(rosidl_runtime_c REQUIRED)
 find_package(rosidl_typesupport_c REQUIRED)
 
+ament_export_dependencies(ament_cmake_ros_core)
 ament_export_dependencies(rcutils)
 ament_export_dependencies(rcpputils)
 ament_export_dependencies(rosidl_runtime_c)
@@ -39,14 +34,13 @@ target_include_directories(${PROJECT_NAME} PUBLIC
 
 target_link_libraries(${PROJECT_NAME} PUBLIC
   rosidl_runtime_c::rosidl_runtime_c
-  rosidl_typesupport_c::rosidl_typesupport_c)
+  rosidl_typesupport_c::rosidl_typesupport_c
+  # Note we link public on purpose, as we want to export
+  # the used C++ version as minimum to all consuming packages
+  ament_cmake_ros_core::ament_ros_defaults)
 target_link_libraries(${PROJECT_NAME} PRIVATE
   rcpputils::rcpputils
   rcutils::rcutils)
-
-# Export old-style CMake variables
-ament_export_include_directories("include/${PROJECT_NAME}")
-ament_export_libraries(${PROJECT_NAME})
 
 # Export modern CMake targets
 ament_export_targets(${PROJECT_NAME})
@@ -58,9 +52,6 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 
   find_package(performance_test_fixture REQUIRED)
-  # Give cppcheck hints about macro definitions coming from outside this package
-  get_target_property(ament_cmake_cppcheck_ADDITIONAL_INCLUDE_DIRS
-    performance_test_fixture::performance_test_fixture INTERFACE_INCLUDE_DIRECTORIES)
 
   set(TEST_LIB_DIR "${CMAKE_CURRENT_BINARY_DIR}/test_libs")
 
@@ -80,6 +71,8 @@ if(BUILD_TESTING)
     COMMAND ${CMAKE_COMMAND} -E copy
     $<TARGET_FILE:rosidl_typesupport_cpp__test_type_support2>
     ${TEST_LIB_DIR})
+
+  find_package(ament_cmake_gtest REQUIRED)
 
   ament_add_gtest(test_message_type_support test/test_message_type_support_dispatch.cpp
     APPEND_ENV

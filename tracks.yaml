@@ -372,7 +372,7 @@ tracks:
     - git-bloom-generate -y rosdynrpm --prefix release/:{ros_distro} :{ros_distro}
       -i :{release_inc} --require-os fedora rhel
     devel_branch: rolling
-    last_version: 3.5.0
+    last_version: 3.5.1
     name: rosidl_typesupport
     patches: null
     release_inc: '1'
